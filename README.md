@@ -21,17 +21,48 @@
 
 ### weex的调试工具
 
-weexplayground，真机调试
+weexplayground
 
-输入命令 `weex debug` 可查看真机上程序运行的情况，并进行调试
+输入命令 `weex debug` 查看手机运行情况，主要观察UI显示情况以及基本的交互逻辑
 
-### weex开发环境的搭建
+### weex开发基本环境的搭建
 
 1. **安装node**   node官网下载安装
-2. `npm install weex-toolkit -g`   weex-toolkit是一个命令行工具，帮助开发者使用weex 安装完成后 可输入 `weex -v`查看weex版本
+2. `npm install weex-toolkit -g`   weex-toolkit是一个命令行工具，帮助开发者使用weex 安装完成后 可输入 `weex -v`查看weex版本  [weex完整命令](https://www.npmjs.com/package/weex-toolkit)
 3. `weex create myproject(项目名称)`   创建一个空的模板项目
 4. `npm install` 安装依赖  第三步创建模板项目时候回询问 是否安装依赖 ，选择是 即可省略第四步。
 5. `npm start` 启动一个本地服务
+
+
+
+
+### 在真机上运行 Android项目需配置的环境
+
+- 安装Java   JDK
+- 安装Android studio
+- 安装SDK   adb
+- 配置 SDK环境变量 `ANDROID_HOME`  [配置方法](https://www.cnblogs.com/harlem/p/6794616.html)
+
+配置完成后 在项目根目录下 输入命令`weex platform add android` 添加Android平台项目模板；
+
+完成后输入`weex run android`  真实设备上启动应用 (此时电脑需与Android手机链接，启用USB调试)
+
+`weex build android`  用于将项目打包成apk
+
+
+
+**一个问题：**
+
+Android正式打包 需要一些签名之类的 如何操作？
+
+
+
+### 在真机上运行 IOS项目需配置的环境
+
+- 安装XCode
+
+
+
 
 
 
@@ -47,7 +78,7 @@ weexplayground，真机调试
 
 ​		weex不支持z-index设置元素层级关系，但是靠后的元素层级越高
 
-​		如果定位元素超过容器边界，在Android下，超出部分将不可见，原因在于在Android端元素overflow默认值为hidden  ????
+​		如果定位元素超过容器边界，在Android下，超出部分将不可见，原因在于在Android端元素overflow默认值为hidden 
 
 ​		支持线性渐变：linea-gradient，不支持径向渐变：radius-gradient
 

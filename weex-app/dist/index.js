@@ -2718,9 +2718,8 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
-//
-//
 
+/* eslint-disable */
 exports.default = {
   name: 'App',
   data: function data() {

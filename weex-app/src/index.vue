@@ -8,12 +8,11 @@
       <text>box2</text>
     </div>
     <image class='img' src=''></image>
-    
   </div>
-  
 </template>
 
 <script>
+/* eslint-disable */
 export default {
   name: 'App',
   data () {
