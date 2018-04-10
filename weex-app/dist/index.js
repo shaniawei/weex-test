@@ -76,10 +76,22 @@
 
 /* weex initialized here, please do not move this line */
 var router = __webpack_require__(1);
-var App = __webpack_require__(5);
+var App = __webpack_require__(8);
 /* eslint-disable no-new */
-new Vue(Vue.util.extend({ el: '#root', router: router }, App));
+var that = new Vue(Vue.util.extend({ el: '#root', router: router }, App));
 router.push('/');
+
+console.log(3333);
+console.log(that.$router.currentRoute.name);
+var globalEvent = weex.requireModule('globalEvent');
+globalEvent.addEventListener('androidback', function (e) {
+    // 这里就可以做返回事件操作了，如返回上一页或退出应用
+    if (that.$router.currentRoute.name == 'Home') {
+        weex.requireModule('close').closeApp();
+    } else {
+        that.$router.go(-1);
+    }
+});
 
 /***/ }),
 /* 1 */
@@ -92,21 +104,29 @@ var _vueRouter = __webpack_require__(2);
 
 var _vueRouter2 = _interopRequireDefault(_vueRouter);
 
-var _HelloWorld = __webpack_require__(3);
+var _Home = __webpack_require__(3);
+
+var _Home2 = _interopRequireDefault(_Home);
+
+var _HelloWorld = __webpack_require__(6);
 
 var _HelloWorld2 = _interopRequireDefault(_HelloWorld);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* global Vue */
-Vue.use(_vueRouter2.default);
+Vue.use(_vueRouter2.default); /* global Vue */
+
 
 module.exports = new _vueRouter2.default({
-  routes: [{
-    path: '/',
-    name: 'HelloWorld',
-    component: _HelloWorld2.default
-  }]
+    routes: [{
+        path: '/',
+        name: 'Home',
+        component: _Home2.default
+    }, {
+        path: '/HelloWorld',
+        name: 'HelloWorld',
+        component: _HelloWorld2.default
+    }]
 });
 
 /***/ }),
@@ -2577,8 +2597,83 @@ exports.default = VueRouter;
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
+/* styles */
+__vue_styles__.push(__webpack_require__(4)
+)
+
 /* template */
-var __vue_template__ = __webpack_require__(4)
+var __vue_template__ = __webpack_require__(5)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "G:\\weex-test\\weex-app\\src\\components\\Home.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-74d54b4f"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  "box": {
+    "width": "200",
+    "height": "200",
+    "fontSize": "30",
+    "borderWidth": "2",
+    "borderStyle": "solid",
+    "borderColor": "#ff0000",
+    "textAlign": "center",
+    "lineHeight": "200"
+  }
+}
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('text', {
+    staticClass: ["message"]
+  }, [_vm._v("zhuye")]), _c('router-link', {
+    attrs: {
+      "to": "/HelloWorld"
+    }
+  }, [_vm._v("Home")]), _c('div', {
+    staticClass: ["box"]
+  }, [_vm._v("box")])], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* template */
+var __vue_template__ = __webpack_require__(7)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -2607,7 +2702,7 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 4 */
+/* 7 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2618,21 +2713,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 5 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(6)
+__vue_styles__.push(__webpack_require__(9)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(7)
+__vue_exports__ = __webpack_require__(10)
 
 /* template */
-var __vue_template__ = __webpack_require__(8)
+var __vue_template__ = __webpack_require__(11)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -2662,7 +2757,7 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 6 */
+/* 9 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -2696,7 +2791,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 7 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2711,53 +2806,24 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* eslint-disable */
 exports.default = {
   name: 'App',
   data: function data() {
-    return {
-      logo: 'https://gw.alicdn.com/tfs/TB1yopEdgoQMeJjy1XaXXcSsFXa-640-302.png',
-      placeholderimg: 'https://cdn.dribbble.com/users/79978/screenshots/3892720/bliss_club.png'
-    };
+    return {};
   }
 };
 
 /***/ }),
-/* 8 */
+/* 11 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["wrapper"]
-  }, [_c('image', {
-    staticClass: ["img"],
-    attrs: {
-      "src": _vm.logo,
-      "placeholder": _vm.placeholderimg
-    }
-  }), _vm._m(0), _vm._m(1), _c('image', {
-    staticClass: ["img"],
-    attrs: {
-      "src": ""
-    }
-  })])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["box1"]
-  }, [_c('text', [_vm._v("box1")])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["box2"]
-  }, [_c('text', [_vm._v("box2")])])
-}]}
+  }, [_c('router-view')], 1)
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 
 /***/ })

@@ -1,3 +1,4 @@
+import Vue from 'vue'
 /* global Vue */
 import Router from 'vue-router'
 import Home from '@/components/Home'

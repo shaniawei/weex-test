@@ -1,13 +1,6 @@
 <template>
   <div class="wrapper">
-    <image class='img' :src="logo" :placeholder="placeholderimg"></image>
-    <div class="box1">
-      <text>box1</text>
-    </div>
-    <div class="box2">
-      <text>box2</text>
-    </div>
-    <image class='img' src=''></image>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -17,8 +10,7 @@ export default {
   name: 'App',
   data () {
     return {
-      logo: 'https://gw.alicdn.com/tfs/TB1yopEdgoQMeJjy1XaXXcSsFXa-640-302.png',
-      placeholderimg:'https://cdn.dribbble.com/users/79978/screenshots/3892720/bliss_club.png'
+      
     }
   }
 }
