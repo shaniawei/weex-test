@@ -25,6 +25,8 @@ weexplayground
 
 输入命令 `weex debug` 查看手机运行情况，主要观察UI显示情况以及基本的交互逻辑
 
+
+
 ### weex开发基本环境的搭建
 
 1. **安装node**   node官网下载安装
@@ -62,7 +64,7 @@ Android正式打包 需要一些签名之类的 如何操作？
 - 安装XCode
 
 
-
+IOS运行打包有问题，未解决
 
 
 
@@ -88,9 +90,72 @@ Android正式打包 需要一些签名之类的 如何操作？
 
 ​		weex中，flexbox是默认并且唯一的布局模型，每个元素都默认拥有display:flex属性
 
-​		
+### weex内建组件	
 
-### weex内建组件
+
+
+
+
+### Image引入图片方面
+
+因为Weex 没有内置的图片下载器，需要Android和iOS 进行一些配置才可正常使用。
+[配置方法](http://weex.apache.org/cn/references/components/image.html)
+
+
+
+### weex嵌入到已有应用方面
+
+Android和iOS进行一些weex配置，web前端将项目打包好bundle.js给Android/iOS
+[嵌入方法](http://weex.apache.org/cn/guide/integrate-to-your-app.html)
+
+![](https://raw.githubusercontent.com/shaniawei/resource/master/images/图片1.png)
+
+![](https://raw.githubusercontent.com/shaniawei/resource/master/images/%E5%9B%BE%E7%89%872.png)
+
+
+
+### weex页面之间 点击物理返回键返回上一页的代码编辑在入口文件中
+
+**运用globalEvent内置组件**
+
+> var globalEvent = weex.requireModule('globalEvent');
+>
+> globalEvent.addEventListener('androidback', function(e) {  //androidback是安卓那边写好的方法
+>
+> ​	// 这里就可以做返回事件操作了，如返回上一页或退出应用
+>
+> ​	if (that.$router.currentRoute.name == 'Home') { //weex项目首页
+>
+> ​		weex.requireModule('close').closeApp() //跳转到native页面
+>
+> ​	} else {
+>
+> ​		that.$router.go(-1);
+>
+> ​	}
+>
+> })
+
+![](https://raw.githubusercontent.com/shaniawei/resource/master/images/%E5%9B%BE%E7%89%873.png)
+
+
+
+### Weex页面之间使用vue-router跳转  **weex debug手机调试出现问题**，打包的bundleJS没问题
+
+问题还未解决  运行此项目 即可重现问题
+
+
+
+### 未实践的
+
+- 点击weex页面直接跳转到native页面
+- weex页面与native页面之间的数据交互
+- 微信、qq、微博等第三方登录，支付，分享(需安卓/iOS写好插件)
+- weex页面嵌入与webview对比(咨询安卓开发后，大致说weex较为麻烦)
+
+
+
+
 
 ​	
 
