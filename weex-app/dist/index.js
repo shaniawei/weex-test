@@ -76,7 +76,7 @@
 
 /* weex initialized here, please do not move this line */
 var router = __webpack_require__(1);
-var App = __webpack_require__(8);
+var App = __webpack_require__(9);
 /* eslint-disable no-new */
 var that = new Vue(Vue.util.extend({ el: '#root', router: router }, App));
 router.push('/');
@@ -108,7 +108,7 @@ var _Home = __webpack_require__(3);
 
 var _Home2 = _interopRequireDefault(_Home);
 
-var _HelloWorld = __webpack_require__(6);
+var _HelloWorld = __webpack_require__(7);
 
 var _HelloWorld2 = _interopRequireDefault(_HelloWorld);
 
@@ -2601,8 +2601,11 @@ var __vue_styles__ = []
 __vue_styles__.push(__webpack_require__(4)
 )
 
+/* script */
+__vue_exports__ = __webpack_require__(5)
+
 /* template */
-var __vue_template__ = __webpack_require__(5)
+var __vue_template__ = __webpack_require__(6)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -2636,44 +2639,791 @@ module.exports = __vue_exports__
 /***/ (function(module, exports) {
 
 module.exports = {
-  "box": {
-    "width": "200",
-    "height": "200",
-    "fontSize": "30",
-    "borderWidth": "2",
+  "m-order-detail": {
+    "backgroundColor": "#eeeeee"
+  },
+  "font-30": {
+    "fontSize": "30"
+  },
+  "font-38": {
+    "fontSize": "38"
+  },
+  "font-32": {
+    "fontSize": "32"
+  },
+  "font-28": {
+    "fontSize": "28"
+  },
+  "font-26": {
+    "fontSize": "26"
+  },
+  "font-24": {
+    "fontSize": "24"
+  },
+  "font-40": {
+    "fontSize": "40"
+  },
+  "color-333": {
+    "color": "#333333"
+  },
+  "color-fff": {
+    "color": "#ffffff"
+  },
+  "color-167": {
+    "color": "#F16700"
+  },
+  "color-666": {
+    "color": "#666666"
+  },
+  "font-bold": {
+    "fontWeight": "bold"
+  },
+  "bg-color-fff": {
+    "backgroundColor": "#ffffff"
+  },
+  "bg-color-167": {
+    "backgroundColor": "#F16700"
+  },
+  "flex-direction": {
+    "WebkitBoxOrient": "horizontal",
+    "WebkitBoxDirection": "normal",
+    "MsFlexDirection": "row",
+    "flexDirection": "row"
+  },
+  "info-1": {
+    "paddingTop": "24",
+    "paddingLeft": "24",
+    "paddingBottom": "24",
+    "marginBottom": "16"
+  },
+  "line": {
+    "borderWidth": "1",
     "borderStyle": "solid",
-    "borderColor": "#ff0000",
-    "textAlign": "center",
-    "lineHeight": "200"
+    "borderColor": "#dddddd"
+  },
+  "aptitude": {
+    "MsFlexWrap": "wrap",
+    "flexWrap": "wrap",
+    "paddingTop": "24",
+    "paddingBottom": "24",
+    "paddingLeft": "24",
+    "paddingRight": "24",
+    "WebkitBoxPack": "justify",
+    "MsFlexPack": "justify",
+    "justifyContent": "space-between",
+    "marginBottom": "18"
+  },
+  "info-2": {
+    "paddingLeft": "24",
+    "paddingRight": "24",
+    "marginBottom": "8"
+  },
+  "shopping": {
+    "position": "fixed",
+    "bottom": 0,
+    "left": 0,
+    "right": 0,
+    "width": 100,
+    "transform": "translateY(-20%)"
   }
 }
 
 /***/ }),
 /* 5 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('text', {
-    staticClass: ["message"]
-  }, [_vm._v("zhuye")]), _c('router-link', {
-    attrs: {
-      "to": "/HelloWorld"
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/*eslint-disable*/
+exports.default = {
+  name: 'OrderDetail',
+  data: function data() {
+    return {
+      checked: false,
+      user_id: this.$route.query.user_id,
+      order_type: this.$route.query.order_type, // 1：普通购买 3：秒杀
+      buy_type: '1', // 1: 共享  2： 买断
+      orderDetail: {
+        'age': '23',
+        'apply_time': '2017-11-20 17:14:12',
+        'buy_price': '10000', // 如果购买了，这里是购买价格
+        'complete_time': '2018-10-10 10:10', // 如果名单已购买，这里是购买时间
+        'buy_type': '0', // 0-可以共享购买也可以买断，1-只能共享购买，2-只能买断购买
+        'city': '广州',
+        'loan_deadline': '6个月以下',
+        'exclusive_price': '25', // 买断价格
+        'has_loan': 'Y',
+        'has_car': 'Y',
+        'has_car_loan': 'Y',
+        'has_credit_card': 'Y',
+        'has_house': 'Y',
+        'has_house_loan': 'Y',
+        'has_insurance': 'Y',
+        'has_social': 'Y',
+        'has_public_fund': 'Y',
+        'has_weilidai': 'Y',
+        'income': '4000~5000元',
+        'insurance_money': '寿险年保费合计0元',
+        'job_time': '36个月以上',
+        'loan_money': '5万元以下',
+        'mobile': '132********',
+        'order_id': '',
+        'order_status': '1', // 1-没有订单，2-下订单没有付款，3-已经购买
+        'payment': '现金发放',
+        'basic_price': '2240',
+        'profession': '私营业主',
+        'sex': '男',
+        'share_num': '0', // 当前的共享数量
+        'share_price': '5', // 共享价格
+        'username': '吴镇帆'
+      }
+    };
+  },
+
+  // beforeCreate () {
+  //   if (this.$COSTANT.PLATFORM === 'ios' && this.$COSTANT.APP_NAME === 'XDY') {
+  //     this.$COMMON_FUN.Cookie.set('buyer_id', this.$route.query.buyer_id)
+  //     this.$COMMON_FUN.Cookie.set('g_token', this.$route.query.g_token)
+  //   }
+  // },
+  // mounted () {
+  //   this.$COMMON_FUN.requestNative({
+  //     tagname: 'clearHistory',
+  //     params: {
+  //       clear: true
+  //     }
+  //   })
+  //   this.$COMMON_FUN.requestNative({
+  //     tagname: 'setTitle',
+  //     params: {
+  //       title: '订单详情'
+  //     }
+  //   })
+  //   this.getOrderDetail()
+  // },
+  methods: {
+    tipMS: function tipMS() {
+      if (this.order_type === '3') {
+        this.Toast({
+          message: '秒杀不能购买买断订单',
+          position: 'middle',
+          duration: 3000
+        });
+      }
+    },
+    getOrderDetail: function getOrderDetail() {
+      var _this = this;
+
+      this.$http({
+        url: '/query_item_detail',
+        params: {
+          'user_id': this.user_id
+        }
+      }, function (res) {
+        _this.orderDetail = res.data;
+        _this.buy_type = res.data.buy_type === '2' ? '2' : '1';
+      });
+    },
+    telOrSms: function telOrSms(type) {
+      if (this.orderDetail.order_status === '0' || this.orderDetail.order_status === '1') {
+        this.Toast({
+          message: '请先完成购买',
+          position: 'middle',
+          duration: 3000
+        });
+        return false;
+      }
+      //   let link = 'http://***/?type=' + type + '&mobile=' + this.orderDetail.mobile
+      //   console.log(link)
+      if (type === 'sms') {
+        this.$COMMON_FUN.requestNative({
+          tagname: 'sendSMS',
+          params: {
+            mobile: this.orderDetail.mobile,
+            message: ''
+          }
+        });
+      } else if (type === 'tel') {
+        this.$COMMON_FUN.requestNative({
+          tagname: 'callPhone',
+          params: {
+            mobile: this.orderDetail.mobile
+          }
+        });
+      }
+    },
+    changeOrderStatus: function changeOrderStatus(status) {
+      this.buy_type = status;
+    },
+    goShopping: function goShopping() {
+      var _this2 = this;
+
+      if (this.$COMMON_FUN.Cookie.get('buyer_id') === '9999') {
+        this.$COMMON_FUN.requestNative({
+          tagname: 'startLogin',
+          params: {
+            toast: '',
+            url: window.location.href
+          }
+        });
+        return;
+      }
+
+      this.$http({
+        url: '/get_buyer_balance',
+        params: {}
+      }, function (res) {
+        if (res.data.auth_status === '2') {
+          _this2.Toast({
+            message: '正在审核中',
+            position: 'middle',
+            duration: 3000
+          });
+        } else if (res.data.auth_status === '3') {
+          _this2.$COMMON_FUN.requestNative({
+            tagname: 'tempRemind',
+            params: {}
+          });
+        } else {
+          _this2.MessageBox({
+            title: '认证提醒',
+            message: '您还没有进行信贷员身份认证<br/>认证后方能进行购买操作',
+            showCancelButton: true,
+            confirmButtonText: '立即前往',
+            cancelButtonText: '先看看'
+          }).then(function (action) {
+            if (action === 'confirm') {
+              _this2.$COMMON_FUN.requestNative({
+                tagname: 'identityAuth',
+                params: {}
+              });
+            }
+          });
+        }
+      });
+      // if (this.orderDetail.order_id === '' || this.orderDetail.order_id === undefined) {
+      //   // 保存数据 跳转支付
+      //   let _price = (this.buy_type === '2' ? this.orderDetail.exclusive_price : this.orderDetail.share_price)
+      //   this.$http({
+      //     url: '/create_order',
+      //     params: {
+      //       'user_id': this.user_id,
+      //       'buy_type': this.buy_type,
+      //       'order_type': this.order_type,
+      //       'price': _price
+      //     }
+      //   }, (res) => {
+      //     this.$router.push({
+      //       path: 'Payment',
+      //       query: {
+      //         'order_id': res.data.order_id,
+      //         'order_type': this.order_type,
+      //         'user_id': this.user_id
+      //       }
+      //     })
+      //   })
+      // } else {
+      //   // 跳转支付
+      //   this.$router.push({
+      //     path: 'Payment',
+      //     query: {
+      //       'order_id': this.orderDetail.order_id,
+      //       'order_type': this.order_type,
+      //       'user_id': this.$route.query.user_id
+      //     }
+      //   })
+      // }
     }
-  }, [_vm._v("Home")]), _c('div', {
-    staticClass: ["box"]
-  }, [_vm._v("box")])], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
+  }
+};
 
 /***/ }),
 /* 6 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["m-order-detail"]
+  }, [_c('div', {
+    staticClass: ["info-1", "bg-color-fff"]
+  }, [_c('div', {
+    staticClass: ["base-info"]
+  }, [_c('text', {
+    staticClass: ["name"]
+  }, [_vm._v(_vm._s(_vm.orderDetail.username) + "(" + _vm._s(_vm.orderDetail.sex === '男' ? '先生' : '女士') + ")")]), _c('div', {
+    staticClass: ["phone", "flex-direction"]
+  }, [_c('image', {
+    staticClass: ["icon-phone"],
+    attrs: {
+      "src": "../../img/icon_phone3x.png"
+    }
+  }), _c('text', {
+    staticClass: ["font-30", "color-333"]
+  }, [_vm._v(_vm._s(_vm.orderDetail.mobile) + " ")]), ((_vm.orderDetail.order_status !== '2') && (_vm.orderDetail.order_status !== '3')) ? _c('text', {
+    staticClass: ["font-30", "color-333"],
+    staticStyle: {
+      color: "#999"
+    }
+  }, [_vm._v("(购入后可见)")]) : _vm._e()]), _c('div', {
+    staticClass: ["line"]
+  }), _c('image', {
+    staticClass: ["contact", "btn-iphone"],
+    class: {
+      sure: (_vm.orderDetail.order_status === '3' || _vm.orderDetail.order_status === '2')
+    },
+    attrs: {
+      "src": "../../img/icon_phone_gray3x.png"
+    },
+    on: {
+      "click": function($event) {
+        _vm.telOrSms('tel')
+      }
+    }
+  }), _c('image', {
+    staticClass: ["contact", "btn-sms"],
+    class: {
+      sure: (_vm.orderDetail.order_status === '3' || _vm.orderDetail.order_status === '2')
+    },
+    attrs: {
+      "src": "../../img/icon_wechat_gray3x.png"
+    },
+    on: {
+      "click": function($event) {
+        _vm.telOrSms('sms')
+      }
+    }
+  })]), _c('div', {
+    staticClass: ["demand"]
+  }, [_c('div', {
+    staticClass: ["item", "flex-direction"]
+  }, [_c('text', {
+    staticClass: ["font-30", "color-333"]
+  }, [_vm._v("申请时间：" + _vm._s(_vm.orderDetail.apply_time))])]), _c('div', {
+    staticClass: ["item", "flex-direction", "row2"]
+  }, [_c('text', {
+    staticClass: ["font-30", "color-333"]
+  }, [_vm._v("贷款金额：")]), _c('text', {
+    staticClass: ["font-30", "color-333"],
+    staticStyle: {
+      color: "#f16700",
+      fontSize: "40px"
+    }
+  }, [_vm._v(_vm._s(_vm.orderDetail.loan_money))])]), _c('div', {
+    staticClass: ["item", "flex-direction"]
+  }, [_c('text', {
+    staticClass: ["font-30", "color-333"]
+  }, [_vm._v("贷款期限：" + _vm._s(_vm.orderDetail.loan_deadline))])])]), (_vm.orderDetail.order_status === '3') ? _c('div', {
+    staticClass: ["shop-status"]
+  }, [_c('div', {
+    staticClass: ["line"]
+  }), _c('div', {
+    staticClass: ["item", "flex-direction"],
+    staticStyle: {
+      marginTop: "24px",
+      marginBottom: "10px"
+    }
+  }, [_c('text', {
+    staticClass: ["font-30", "color-333"]
+  }, [_vm._v("买入时间：" + _vm._s(_vm.orderDetail.complete_time))])]), _c('div', {
+    staticClass: ["item", "flex-direction"]
+  }, [_c('text', {
+    staticClass: ["font-30", "color-333"]
+  }, [_vm._v("买入价格：" + _vm._s(_vm.orderDetail.buy_price) + "元(" + _vm._s(_vm.orderDetail.buy_type === '1' ? '共享单' : '买断单') + ")")])])]) : _vm._e()]), ((_vm.orderDetail.has_car === 'Y') || (_vm.orderDetail.has_car_loan === 'Y') || (_vm.orderDetail.has_house === 'Y') || (_vm.orderDetail.has_house_loan === 'Y') || (_vm.orderDetail.has_credit_card === 'Y') || (_vm.orderDetail.has_social === 'Y') || (_vm.orderDetail.has_insurance === 'Y')) ? _c('div', {
+    staticClass: ["aptitude", "flex-direction", "bg-color-fff"]
+  }, [(_vm.orderDetail.has_car === 'Y') ? _c('div', {
+    staticClass: ["item", "flex-direction"]
+  }, [_c('image', {
+    staticClass: ["icon", "icon-car"],
+    attrs: {
+      "src": "../../img/icon_car3x.png"
+    }
+  }), _c('text', {
+    staticClass: ["font-28", "color-333"]
+  }, [_vm._v("有车")])]) : _vm._e(), (_vm.orderDetail.has_car_loan === 'Y') ? _c('div', {
+    staticClass: ["item", "flex-direction"]
+  }, [_c('image', {
+    staticClass: ["icon", "icon-car-loan"],
+    attrs: {
+      "src": "../../img/icon_car23x.png"
+    }
+  }), _c('text', {
+    staticClass: ["font-28", "color-333"]
+  }, [_vm._v("有车贷")])]) : _vm._e(), (_vm.orderDetail.has_house === 'Y') ? _c('div', {
+    staticClass: ["item", "flex-direction"]
+  }, [_c('image', {
+    staticClass: ["icon", "icon-house"],
+    attrs: {
+      "src": "../../img/icon_house3x.png"
+    }
+  }), _c('text', {
+    staticClass: ["font-28", "color-333"]
+  }, [_vm._v("有房")])]) : _vm._e(), (_vm.orderDetail.has_house_loan === 'Y') ? _c('div', {
+    staticClass: ["item", "flex-direction"]
+  }, [_c('image', {
+    staticClass: ["icon", "icon-house-loan"],
+    attrs: {
+      "src": "../../img/icon_house23x.png"
+    }
+  }), _c('text', {
+    staticClass: ["font-28", "color-333"]
+  }, [_vm._v("有房贷")])]) : _vm._e(), (_vm.orderDetail.has_credit_card === 'Y') ? _c('div', {
+    staticClass: ["item", "flex-direction"]
+  }, [_c('image', {
+    staticClass: ["icon", "icon-credit"],
+    attrs: {
+      "src": "../../img/icon_creditcard3x.png"
+    }
+  }), _c('text', {
+    staticClass: ["font-28", "color-333"]
+  }, [_vm._v("有信用卡")])]) : _vm._e(), (_vm.orderDetail.has_social === 'Y') ? _c('div', {
+    staticClass: ["item", "flex-direction"]
+  }, [_c('image', {
+    staticClass: ["icon", "icon-social"],
+    attrs: {
+      "src": "../../img/icon_sl3x.png"
+    }
+  }), _c('text', {
+    staticClass: ["font-28", "color-333"]
+  }, [_vm._v("有社保")])]) : _vm._e(), (_vm.orderDetail.has_public_fund === 'Y') ? _c('div', {
+    staticClass: ["item", "flex-direction"]
+  }, [_c('image', {
+    staticClass: ["icon", "icon-house-fund"],
+    attrs: {
+      "src": "../../img/icon_housefund3x.png"
+    }
+  }), _c('text', {
+    staticClass: ["font-28", "color-333"]
+  }, [_vm._v("有公积金")])]) : _vm._e(), (_vm.orderDetail.has_loan === 'Y') ? _c('div', {
+    staticClass: ["item", "flex-direction"]
+  }, [_c('image', {
+    staticClass: ["icon", "icon-loan"],
+    attrs: {
+      "src": "../../img/icon_bancklend3x.png"
+    }
+  }), _c('text', {
+    staticClass: ["font-28", "color-333"]
+  }, [_vm._v("有贷款")])]) : _vm._e(), (_vm.orderDetail.has_weilidai === 'Y') ? _c('div', {
+    staticClass: ["item", "flex-direction"]
+  }, [_c('image', {
+    staticClass: ["icon", "icon-weilidai"],
+    attrs: {
+      "src": "../../img/icon_weilidailogo3x.png"
+    }
+  }), _c('text', {
+    staticClass: ["font-28", "color-333"]
+  }, [_vm._v("有微粒贷")])]) : _vm._e(), (_vm.orderDetail.has_insurance === 'Y') ? _c('div', {
+    staticClass: ["item", "flex-direction"],
+    staticStyle: {
+      width: "100%",
+      marginBottom: "0"
+    }
+  }, [_c('image', {
+    staticClass: ["icon", "icon-insurance"],
+    attrs: {
+      "src": "../../img/icon_insurance3x.png"
+    }
+  }), _c('text', {
+    staticClass: ["font-28", "color-333"]
+  }, [_vm._v("寿险保单")]), _c('text', {
+    staticClass: ["font-28", "color-666"]
+  }, [_vm._v("(" + _vm._s(_vm.orderDetail.insurance_money) + ")")])]) : _vm._e()]) : _vm._e(), _c('div', {
+    staticClass: ["info-2", "bg-color-fff"]
+  }, [_c('div', {
+    staticClass: ["item", "flex-direction"]
+  }, [_c('text', {
+    staticClass: ["fl", "font-30", "color-666"]
+  }, [_vm._v("城市")]), _c('text', {
+    staticClass: ["fr", "font-30", "color-666"]
+  }, [_vm._v(_vm._s(_vm.orderDetail.city))])]), _c('div', {
+    staticClass: ["item", "flex-direction"]
+  }, [_c('text', {
+    staticClass: ["fl", "font-30", "color-666"]
+  }, [_vm._v("年龄")]), _c('text', {
+    staticClass: ["fr", "font-30", "color-666"]
+  }, [_vm._v(_vm._s(_vm.orderDetail.age) + " 岁")])]), _c('div', {
+    staticClass: ["item", "flex-direction"],
+    staticStyle: {
+      borderBottom: "0"
+    }
+  }, [_c('text', {
+    staticClass: ["fl", "font-30", "color-666"]
+  }, [_vm._v("性别")]), _c('text', {
+    staticClass: ["fr", "font-30", "color-666"]
+  }, [_vm._v(_vm._s(_vm.orderDetail.sex))])])]), _c('div', {
+    staticClass: ["info-2", "bg-color-fff"],
+    class: {
+      'no-b-border': (_vm.orderDetail.order_status === '3' || _vm.orderDetail.order_status === '2')
+    }
+  }, [_c('div', {
+    staticClass: ["item", "flex-direction"]
+  }, [_c('text', {
+    staticClass: ["fl", "font-30", "color-666"]
+  }, [_vm._v("职业类型")]), _c('text', {
+    staticClass: ["fr", "font-30", "color-666"]
+  }, [_vm._v(_vm._s(_vm.orderDetail.profession))])]), _c('div', {
+    staticClass: ["item", "flex-direction"]
+  }, [_c('text', {
+    staticClass: ["fl", "font-30", "color-666"]
+  }, [_vm._v("在职时长")]), _c('text', {
+    staticClass: ["fr", "font-30", "color-666"]
+  }, [_vm._v(_vm._s(_vm.orderDetail.job_time))])]), _c('div', {
+    staticClass: ["item", "flex-direction"]
+  }, [_c('text', {
+    staticClass: ["fl", "font-30", "color-666"]
+  }, [_vm._v("收入")]), _c('text', {
+    staticClass: ["fr", "font-30", "color-666"]
+  }, [_vm._v(_vm._s(_vm.orderDetail.income))])]), _c('div', {
+    staticClass: ["item", "flex-direction"],
+    staticStyle: {
+      borderBottomWidth: "0"
+    }
+  }, [_c('text', {
+    staticClass: ["fl", "font-30", "color-666"]
+  }, [_vm._v("发薪方式")]), _c('text', {
+    staticClass: ["fr", "font-30", "color-666"]
+  }, [_vm._v(_vm._s(_vm.orderDetail.payment))])])]), (_vm.orderDetail.order_status !== '2' && _vm.orderDetail.order_status !== '3') ? _c('div', {
+    staticStyle: {
+      height: "124px"
+    }
+  }) : _vm._e(), (_vm.orderDetail.order_status === '2' || _vm.orderDetail.order_status === '3') ? _c('div', {
+    staticStyle: {
+      height: "46.5px"
+    }
+  }) : _vm._e(), (_vm.orderDetail.order_status !== '2' && _vm.orderDetail.order_status !== '3') ? _c('div', {
+    staticClass: ["shopping"]
+  }, [_c('div', {
+    staticClass: ["order-status", "flex-direction"]
+  }, [_c('div', {
+    staticClass: ["item", "flex-direction"]
+  }, [_c('image', {
+    staticClass: ["icon"],
+    attrs: {
+      "src": _vm.checked == false ? '../../img/icon_selected_gray3x.png' : '../../img/icon_selected_orange3x.png',
+      "checked": _vm.buy_type !== '1' ? true : false,
+      "disabled": _vm.order_type === '3' || _vm.orderDetail.buy_type !== '0' ? true : false,
+      "value": "N"
+    },
+    on: {
+      "click": function($event) {
+        _vm.changeOrderStatus('2')
+      }
+    }
+  }), _c('div', {
+    staticClass: ["des"]
+  }, [_c('text', {
+    staticClass: ["font-26", "color-333", "font-bold"]
+  }, [_vm._v("共享订单")]), _c('text', {
+    staticClass: ["font-26", "color-666"]
+  }, [_vm._v("当前已共享" + _vm._s(_vm.orderDetail.share_num) + "/3")])])]), _c('div', {
+    staticClass: ["item", "flex-direction"],
+    on: {
+      "click": _vm.tipMS
+    }
+  }, [_c('image', {
+    staticClass: ["icon"],
+    attrs: {
+      "src": _vm.checked == false ? '../../img/icon_selected_gray3x.png' : '../../img/icon_selected_orange3x.png',
+      "checked": _vm.buy_type !== '1' ? true : false,
+      "disabled": _vm.order_type === '3' || _vm.orderDetail.buy_type !== '0' ? true : false,
+      "value": "N"
+    },
+    on: {
+      "click": function($event) {
+        _vm.changeOrderStatus('2')
+      }
+    }
+  }), _vm._m(0)])]), _c('div', {
+    staticClass: ["price-shop", "bg-color-fff", "flex-direction"]
+  }, [_c('div', {
+    staticClass: ["item", "price", "flex-direction"],
+    staticStyle: {
+      width: "62%"
+    }
+  }, [_c('text', {
+    staticClass: ["font-24", "color-167"]
+  }, [_vm._v("¥")]), (_vm.buy_type === '0') ? _c('text', {
+    staticClass: ["font-40", "color-167", "font-bold"]
+  }, [_vm._v(_vm._s(_vm.orderDetail.share_price))]) : _vm._e(), (_vm.buy_type === '1') ? _c('text', {
+    staticClass: ["font-40", "color-167", "font-bold"]
+  }, [_vm._v(_vm._s(_vm.orderDetail.share_price))]) : _vm._e(), (_vm.buy_type === '2') ? _c('text', {
+    staticClass: ["font-40", "color-167", "font-bold"]
+  }, [_vm._v(_vm._s(_vm.orderDetail.exclusive_price))]) : _vm._e(), _c('del', {
+    staticClass: ["font-24", "color-167"]
+  }, [_vm._v("(原价: ¥ " + _vm._s(_vm.orderDetail.basic_price) + ")")])], 1), _c('div', {
+    staticClass: ["item", "btn-shop", "bg-color-167"],
+    staticStyle: {
+      width: "38%"
+    }
+  }, [(_vm.orderDetail.order_status === '0') ? _c('text', {
+    staticClass: ["font-38", "color-fff"],
+    on: {
+      "click": _vm.goShopping
+    }
+  }, [_vm._v("立即购买")]) : _vm._e(), (_vm.orderDetail.order_status === '1') ? _c('text', {
+    staticClass: ["font-38", "color-fff"],
+    on: {
+      "click": _vm.goShopping
+    }
+  }, [_vm._v("继续购买")]) : _vm._e()])])]) : _vm._e()])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["des"]
+  }, [_c('text', {
+    staticClass: ["font-26", "color-333", "font-bold"]
+  }, [_vm._v("买断订单")]), _c('text', {
+    staticClass: ["font-26", "color-666"]
+  }, [_vm._v("个人独享,轻松无打扰")])])
+}]}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* template */
-var __vue_template__ = __webpack_require__(7)
+var __vue_template__ = __webpack_require__(8)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -2702,7 +3452,7 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2713,21 +3463,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(9)
+__vue_styles__.push(__webpack_require__(10)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(10)
+__vue_exports__ = __webpack_require__(11)
 
 /* template */
-var __vue_template__ = __webpack_require__(11)
+var __vue_template__ = __webpack_require__(12)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -2757,41 +3507,13 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
-module.exports = {
-  "wrapper": {
-    "justifyContent": "center",
-    "alignItems": "center"
-  },
-  "box1": {
-    "height": "500",
-    "width": "500",
-    "backgroundImage": "linear-gradient(to bottom, #fff, #000)",
-    "borderWidth": "10",
-    "borderColor": "#ff0000",
-    "borderStyle": "solid"
-  },
-  "box2": {
-    "height": "500",
-    "width": "500",
-    "backgroundImage": "radial-gradient(#fff,#000)",
-    "borderWidth": "10",
-    "borderColor": "#008000",
-    "borderStyle": "solid"
-  },
-  "img": {
-    "width": "200",
-    "height": "200",
-    "borderWidth": "1",
-    "borderColor": "#008000",
-    "borderStyle": "solid"
-  }
-}
+module.exports = {}
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2816,7 +3538,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;

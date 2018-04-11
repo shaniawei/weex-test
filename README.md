@@ -70,25 +70,36 @@ IOS运行打包有问题，未解决
 
 ### weex通用样式
 
-​		只支持像素值，不支持相对值，适配以750像素为标准
+1. 只支持像素值，不支持相对值，适配以750像素为标准
 
-​		设定边框，border目前不支持`border:1px solid #f00;` 这样的组合写法，目前支持分开编辑的写法，即`border-width:1px;border-style:solid;border-color:#f00;`
+2. 设定边框，border目前不支持`border:1px solid #f00;` 这样的组合写法，目前支持分开编辑的写法，即`border-width:1px;border-style:solid;border-color:#f00;`
 
-​		设定背景，background目前不支持`background:#f00;` 这样的组合写法，与border同理，需分开编辑，即`background-color:#f00;`
+3. 设定背景，background目前不支持`background:#f00;` 这样的组合写法，与border同理，需分开编辑，即`background-color:#f00;`
 
-​		weex支持position定位:relative | absolute |fixed |sticky ，默认值是relative
+4. weex支持position定位:relative | absolute |fixed |sticky ，默认值是relative
 
-​		weex不支持z-index设置元素层级关系，但是靠后的元素层级越高
+5. weex不支持z-index设置元素层级关系，但是靠后的元素层级越高
 
-​		如果定位元素超过容器边界，在Android下，超出部分将不可见，原因在于在Android端元素overflow默认值为hidden 
+6. 如果定位元素超过容器边界，在Android下，超出部分将不可见，原因在于在Android端元素overflow默认值为hidden 
 
-​		支持线性渐变：linea-gradient，不支持径向渐变：radius-gradient
+7. 支持线性渐变：linea-gradient，不支持径向渐变：radius-gradient
 
-​		weex中box-shadow仅仅支持ios
+8. weex中box-shadow仅仅支持ios
 
-​		目前image组件无法定义一个或多个角的border-radius，只对ios有效，ios只能直接使用border-radius定义圆角，Android可随意定义
+9. 目前image组件无法定义一个或多个角的border-radius，只对ios有效，ios只能直接使用border-radius定义圆角，Android可随意定义
 
-​		weex中，flexbox是默认并且唯一的布局模型，每个元素都默认拥有display:flex属性
+10. weex中，flexbox是默认并且唯一的布局模型，每个元素都默认拥有display:flex属性
+11. weex没有background-image属性
+12. Weex 盒模型的 box-sizing 默认为 border-box
+13. weex中编辑css 没有标签选择器，只能通过类选择器和id选择器增加css样式
+14. 文字必须放在text标签中，不可以直接放在div标签中
+
+
+
+**问题：**
+
+1. position:fixed;bottom:0;失效
+2. web页面良好，安卓渲染样式失效
 
 ### weex内建组件	
 
@@ -155,6 +166,14 @@ Android和iOS进行一些weex配置，web前端将项目打包好bundle.js给And
 
 
 
+
+
+
+### 引入css的三种方式
+
+- 内联在vue文件中
+- **`<style src='./Home.css'></style>`**
+- `<style scoped> @import url('./Home.css');</style>`
 
 
 ​	
