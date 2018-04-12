@@ -68,6 +68,12 @@ IOS运行打包有问题，未解决
 
 
 
+### 引入css的三种方式
+
+- 内联在vue文件中
+- **`<style src='./Home.css'></style>`**
+- `<style scoped> @import url('./Home.css');</style>`
+
 ### weex通用样式
 
 1. 只支持像素值，不支持相对值，适配以750像素为标准
@@ -89,19 +95,50 @@ IOS运行打包有问题，未解决
 9. 目前image组件无法定义一个或多个角的border-radius，只对ios有效，ios只能直接使用border-radius定义圆角，Android可随意定义
 
 10. weex中，flexbox是默认并且唯一的布局模型，每个元素都默认拥有display:flex属性
+
 11. weex没有background-image属性
+
 12. Weex 盒模型的 box-sizing 默认为 border-box
+
 13. weex中编辑css 没有标签选择器，只能通过类选择器和id选择器增加css样式
+
 14. 文字必须放在text标签中，不可以直接放在div标签中
 
+15. **图片路径 image使用相对路径在IOS上显示不出来，使用绝对路径运行*`weex run Android`*在Android机上显示不出来，必须使用完整路径，如下图，ip在data里面注册一下，赋上域名的值**
+
+   ![](https://raw.githubusercontent.com/shaniawei/resource/master/images/weex-src.png)
+
+16. **width，height这些不可以用百分比，只能用像素px**
+
+17. **position:fixed;定义元素宽高，才可以精准定位，真机没问题，web元素块会偏下(调试工具有毛病)**
+
+18. **页面底部固定悬浮一个元素块，页面内容往下滑动问题**
+
+
+底部元素块样式：position:fixed;bottom:0;width:***xxx***px;height:***xxx***px;宽高都定义一下
+
+![](https://raw.githubusercontent.com/shaniawei/resource/master/images/weex-scoll2.png)
+
+所有需要滑动的元素放在scroller标签中，添加样式：position:fixed;top:0;left:0;right:0;bottom:***xx***px，bottom值根据底部固定元素高度而定。如果最外层如下图 `m-order-detail`加了背景颜色，那么这个时候背景颜色时不会显示出来的，将背景样式放在scroller标签上就OK。
+
+scroller标签内的子div需要添加css:`width:750px;` 
+
+![](https://raw.githubusercontent.com/shaniawei/resource/master/images/weex-scroll1.png)
+
+
+
+![](https://raw.githubusercontent.com/shaniawei/resource/master/images/weex-css.png)
 
 
 **问题：**
 
-1. position:fixed;bottom:0;失效
-2. web页面良好，安卓渲染样式失效
+1. 文字上下标效果
 
-### weex内建组件	
+2. 数字偏小
+
+3. 安卓真机滑动卡顿
+
+   ### weex内建组件
 
 
 
@@ -167,13 +204,6 @@ Android和iOS进行一些weex配置，web前端将项目打包好bundle.js给And
 
 
 
-
-
-### 引入css的三种方式
-
-- 内联在vue文件中
-- **`<style src='./Home.css'></style>`**
-- `<style scoped> @import url('./Home.css');</style>`
 
 
 ​	

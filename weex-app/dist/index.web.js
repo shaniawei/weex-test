@@ -8752,7 +8752,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _weexVueRender2.default.init(_vue2.default);
 /* weex initialized here, please do not move this line */
 var router = __webpack_require__(10);
-var App = __webpack_require__(20);
+var App = __webpack_require__(21);
 /* eslint-disable no-new */
 var that = new _vue2.default(_vue2.default.util.extend({ el: '#root', router: router }, App));
 router.push('/');
@@ -19508,7 +19508,7 @@ var _Home = __webpack_require__(12);
 
 var _Home2 = _interopRequireDefault(_Home);
 
-var _HelloWorld = __webpack_require__(18);
+var _HelloWorld = __webpack_require__(19);
 
 var _HelloWorld2 = _interopRequireDefault(_HelloWorld);
 
@@ -22175,7 +22175,7 @@ var Component = __webpack_require__(2)(
   /* script */
   __webpack_require__(16),
   /* template */
-  __webpack_require__(17),
+  __webpack_require__(18),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -22241,7 +22241,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.m-order-detail {\r\n    background-color: #eee;\n}\n.font-30 {\r\n    font-size: 0.4rem;\n}\n.font-32 {\r\n    font-size: 0.42667rem;\n}\n.font-28 {\r\n    font-size: 0.37333rem;\n}\n.font-26 {\r\n    font-size: 0.34667rem;\n}\n.color-333 {\r\n    color: #333;\n}\n.color-666 {\r\n    color: #666;\n}\n.bg-color-fff {\r\n    background-color: #fff;\n}\n.flex-direction {\r\n    flex-direction: row;\n}\n.info-1 {\r\n    padding-top: 0.32rem;\r\n    padding-left: 0.32rem;\r\n    padding-bottom: 0.32rem;\r\n    margin-bottom: 0.21333rem;\n}\n.info-1 .base-info .name {\r\n    font-size: 0.53333rem;\r\n    font-weight: bold;\n}\n.info-1 .base-info .phone {\r\n    align-items: center;\r\n    margin-top: 0.13333rem;\r\n    margin-bottom: 0.34667rem;\n}\n.info-1 .base-info .phone .icon-phone {\r\n    width: 0.32rem;\r\n    height: 0.53333rem;\r\n    margin-right: 0.26667rem;\n}\n.line {\r\n    border-width: 1px;\r\n    border-style: solid;\r\n    border-color: #ddd;\n}\n.info-1 .base-info .contact {\r\n    width: 0.64rem;\r\n    height: 0.64rem;\r\n    position: absolute;\r\n    top: 50%;\r\n    -webkit-transform: translateY(-50%);\r\n    transform: translateY(-50%);\n}\n.info-1 .base-info .contact.btn-iphone {\r\n    right: 1.70667rem;\n}\n.info-1 .base-info .contact.btn-sms {\r\n    right: 0.53333rem;\n}\n.info-1 .demand {\r\n    padding-top: 0.32rem;\n}\n.info-1 .shop-status {\r\n    margin-top: 0.32rem;\n}\n.info-1 .demand .item.row2 {\r\n    margin-top: 0.13333rem;\r\n    margin-bottom: 0.13333rem;\r\n    align-items: center;\n}\n.aptitude {\r\n    flex-wrap: wrap;\r\n    padding-top: 0.32rem;\r\n    padding-bottom: 0.32rem;\r\n    padding-left: 0.32rem;\r\n    padding-right: 0.32rem;\r\n    justify-content: space-between;\r\n    margin-bottom: 0.24rem;\n}\n.aptitude .item {\r\n    align-items: center;\r\n    width: 2.90667rem;\r\n    height: 0.96rem;\r\n    border-width: 1px;\r\n    border-style: solid;\r\n    border-color: rgba(204, 204, 204, 0.50);\r\n    box-shadow: 0 1px 0.05333rem 0 rgba(0, 0, 0, 0.17);\r\n    border-radius: 0.02667rem;\r\n    margin-bottom: 0.32rem;\n}\n.aptitude .item .icon {\r\n    width: 0.56rem;\r\n    height: 0.46rem;\r\n    margin-left: 0.26667rem;\r\n    margin-right: 0.26667rem;\n}\n.info-2 {\r\n    padding-left: 0.32rem;\r\n    padding-right: 0.32rem;\r\n    margin-bottom: 0.10667rem;\n}\n.info-2 .item {\r\n    padding-top: 0.24rem;\r\n    padding-bottom: 0.24rem;\r\n    justify-content: space-between;\r\n    border-bottom-width: 1px;\r\n    border-bottom-style: solid;\r\n    border-bottom-color: #ddd;\n}\n.shopping {\r\n    position: fixed;\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n    width: 100%;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\n}\n.shopping .order-status {\r\n    background: #F9F9F9;\n}\n.shopping .order-status .item {\r\n    width: 50%;\r\n    align-items: center;\r\n    padding-top: 0.26667rem;\r\n    padding-bottom: 0.26667rem;\n}", ""]);
+exports.push([module.i, "\n.m-order-detail {\r\n    background-color: #eee;\n}\n.font-30 {\r\n    font-size: 0.4rem;\n}\n.font-38 {\r\n    font-size: 0.50667rem;\n}\n.font-32 {\r\n    font-size: 0.42667rem;\n}\n.font-28 {\r\n    font-size: 0.37333rem;\n}\n.font-26 {\r\n    font-size: 0.34667rem;\n}\n.font-24 {\r\n    font-size: 0.32rem;\n}\n.font-40 {\r\n    font-size: 0.53333rem;\n}\n.color-333 {\r\n    color: #333;\n}\n.color-fff {\r\n    color: #fff;\n}\n.color-167 {\r\n    color: #F16700;\n}\n.color-666 {\r\n    color: #666;\n}\n.font-bold {\r\n    font-weight: bold;\n}\n.bg-color-fff {\r\n    background-color: #fff;\n}\n.bg-color-167 {\r\n    background-color: #F16700;\n}\n.flex-direction {\r\n    flex-direction: row;\n}\n.vertical {\r\n    vertical-align: bottom;\n}\n.info-1 {\r\n    padding-top: 0.32rem;\r\n    padding-left: 0.32rem;\r\n    padding-bottom: 0.32rem;\r\n    margin-bottom: 0.21333rem;\r\n    width: 10rem;\n}\n.base-info-phone {\r\n    align-items: center;\r\n    margin-top: 0.13333rem;\r\n    margin-bottom: 0.34667rem;\n}\n.icon-phone {\r\n    width: 0.32rem;\r\n    height: 0.53333rem;\r\n    margin-right: 0.26667rem;\r\n    margin-right: 20px !important;\n}\n.line {\r\n    border-width: 1px;\r\n    border-style: solid;\r\n    border-color: #ddd;\n}\n.contact {\r\n    width: 0.64rem;\r\n    height: 0.64rem;\r\n    position: absolute;\r\n    top: 50%;\r\n    -webkit-transform: translateY(-50%);\r\n    transform: translateY(-50%);\n}\n.btn-iphone {\r\n    right: 1.70667rem;\n}\n.btn-sms {\r\n    right: 0.53333rem;\n}\n.demand {\r\n    padding-top: 0.32rem;\n}\n.shop-status {\r\n    margin-top: 0.32rem;\n}\n.row2 {\r\n    margin-top: 0.13333rem;\r\n    margin-bottom: 0.13333rem;\r\n    align-items: center;\n}\n.aptitude {\r\n    flex-wrap: wrap;\r\n    padding-top: 0.32rem;\r\n    padding-bottom: 0.32rem;\r\n    padding-left: 0.32rem;\r\n    padding-right: 0.32rem;\r\n    justify-content: space-between;\r\n    margin-bottom: 0.24rem;\r\n    width: 10rem;\n}\n.aptitude-item {\r\n    align-items: center;\r\n    width: 2.90667rem;\r\n    height: 0.96rem;\r\n    border-width: 1px;\r\n    border-style: solid;\r\n    border-color: rgba(204, 204, 204, 0.50);\r\n    box-shadow: 0 1px 0.05333rem 0 rgba(0, 0, 0, 0.17);\r\n    border-radius: 0.02667rem;\r\n    margin-bottom: 0.32rem;\n}\n.aptitude-item-icon {\r\n    width: 0.56rem;\r\n    height: 0.46rem;\r\n    margin-left: 0.26667rem;\r\n    margin-right: 0.26667rem;\r\n    margin-left: 20px !important;\r\n    margin-right: 20px !important;\n}\n.info-2 {\r\n    padding-left: 0.32rem;\r\n    padding-right: 0.32rem;\r\n    margin-bottom: 0.10667rem;\r\n    width: 10rem;\n}\n.info-2-item {\r\n    padding-top: 0.24rem;\r\n    padding-bottom: 0.24rem;\r\n    justify-content: space-between;\r\n    border-bottom-width: 1px;\r\n    border-bottom-style: solid;\r\n    border-bottom-color: #ddd;\n}\n.shopping {\r\n    position: fixed;\r\n    width: 10rem;\r\n    bottom: 0;\r\n    height: 3.46667rem;\n}\n.order-status {\r\n    background-color: #F9F9F9;\r\n    height: 1.73333rem;\r\n    align-items: center;\n}\n.order-status-item {\r\n    flex: 1;\r\n    align-items: flex-start;\n}\n.order-status-item-icon {\r\n    width: 0.53333rem;\r\n    height: 0.53333rem;\r\n    margin-left: 0.53333rem;\r\n    margin-right: 0.32rem;\r\n    margin-left: 40px !important;\r\n    margin-right: 24px !important;\n}\n.price-shop {\r\n    height: 1.73333rem;\n}\n.price-shop-item {\r\n    align-items: center;\r\n    justify-content: center;\n}", ""]);
 
 // exports
 
@@ -22289,13 +22289,14 @@ module.exports = function listToStyles (parentId, list) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-//
-//
-//
-//
-//
-//
-//
+
+var _common = __webpack_require__(17);
+
+var _common2 = _interopRequireDefault(_common);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+console.log(_common2.default.ip); //
 //
 //
 //
@@ -22429,10 +22430,14 @@ Object.defineProperty(exports, "__esModule", {
 //
 
 /*eslint-disable*/
+
+var dom = weex.requireModule('dom');
 exports.default = {
   name: 'OrderDetail',
   data: function data() {
     return {
+      checked: true,
+      ip: _common2.default.ip,
       user_id: this.$route.query.user_id,
       order_type: this.$route.query.order_type, // 1：普通购买 3：秒杀
       buy_type: '1', // 1: 共享  2： 买断
@@ -22467,33 +22472,15 @@ exports.default = {
         'profession': '私营业主',
         'sex': '男',
         'share_num': '0', // 当前的共享数量
-        'share_price': '5', // 共享价格
+        'share_price': '5万', // 共享价格
         'username': '吴镇帆'
       }
     };
   },
+  created: function created() {
+    // this.ip = common.ip
+  },
 
-  // beforeCreate () {
-  //   if (this.$COSTANT.PLATFORM === 'ios' && this.$COSTANT.APP_NAME === 'XDY') {
-  //     this.$COMMON_FUN.Cookie.set('buyer_id', this.$route.query.buyer_id)
-  //     this.$COMMON_FUN.Cookie.set('g_token', this.$route.query.g_token)
-  //   }
-  // },
-  // mounted () {
-  //   this.$COMMON_FUN.requestNative({
-  //     tagname: 'clearHistory',
-  //     params: {
-  //       clear: true
-  //     }
-  //   })
-  //   this.$COMMON_FUN.requestNative({
-  //     tagname: 'setTitle',
-  //     params: {
-  //       title: '订单详情'
-  //     }
-  //   })
-  //   this.getOrderDetail()
-  // },
   methods: {
     tipMS: function tipMS() {
       if (this.order_type === '3') {
@@ -22634,7 +22621,682 @@ exports.default = {
 /* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports={render:function(){},staticRenderFns:[]}
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+/*eslint-disable*/
+var IP = 'http://192.168.1.51:8081';
+exports.default = {
+    ip: IP
+};
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "m-order-detail weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('scroller', {
+    staticStyle: {
+      "top": "0",
+      "bottom": "3.46667rem",
+      "position": "fixed",
+      "background-color": "#eee",
+      "left": "0",
+      "right": "0"
+    },
+    attrs: {}
+  }, [_c('div', {
+    staticClass: "info-1 bg-color-fff weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('div', {
+    staticClass: " weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('p', {
+    staticClass: "font-40 font-bold weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v(_vm._s(_vm.orderDetail.username) + "(" + _vm._s(_vm.orderDetail.sex === '男' ? '先生' : '女士') + ")")]), _vm._v(" "), _c('div', {
+    staticClass: "base-info-phone flex-direction weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('figure', {
+    staticClass: "icon-phone weex-el weex-image",
+    attrs: {
+      "src": _vm.ip + '/img/icon_phone3x.png',
+      "data-img-src": _vm.ip + '/img/icon_phone3x.png',
+      "weex-type": "image"
+    }
+  }), _vm._v(" "), _c('p', {
+    staticClass: "font-30 color-333 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v(_vm._s(_vm.orderDetail.mobile) + " ")]), _vm._v(" "), ((_vm.orderDetail.order_status !== '2') && (_vm.orderDetail.order_status !== '3')) ? _c('p', {
+    staticClass: "font-30 color-333 weex-el weex-text",
+    staticStyle: {
+      "color": "#999"
+    },
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("(购入后可见)")]) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "line weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }), _vm._v(" "), _c('figure', {
+    staticClass: "contact btn-iphone weex-el weex-image",
+    class: {
+      sure: (_vm.orderDetail.order_status === '3' || _vm.orderDetail.order_status === '2')
+    },
+    attrs: {
+      "src": _vm.ip + '/img/icon_phone_gray3x.png',
+      "data-img-src": _vm.ip + '/img/icon_phone_gray3x.png',
+      "weex-type": "image",
+      "data-evt-click": ""
+    },
+    on: {
+      "click": _vm.$stopOuterA,
+      "weex$tap": function($event) {
+        $event.stopPropagation();
+        _vm.telOrSms('tel')
+      }
+    }
+  }), _vm._v(" "), _c('figure', {
+    staticClass: "contact btn-sms weex-el weex-image",
+    class: {
+      sure: (_vm.orderDetail.order_status === '3' || _vm.orderDetail.order_status === '2')
+    },
+    attrs: {
+      "src": _vm.ip + '/img/icon_wechat_gray3x.png',
+      "data-img-src": _vm.ip + '/img/icon_wechat_gray3x.png',
+      "weex-type": "image",
+      "data-evt-click": ""
+    },
+    on: {
+      "click": _vm.$stopOuterA,
+      "weex$tap": function($event) {
+        $event.stopPropagation();
+        _vm.telOrSms('sms')
+      }
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "demand weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('div', {
+    staticClass: "flex-direction weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('p', {
+    staticClass: "font-30 color-333 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("申请时间：" + _vm._s(_vm.orderDetail.apply_time))])]), _vm._v(" "), _c('div', {
+    staticClass: "flex-direction row2 weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('p', {
+    staticClass: "font-30 color-333 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("贷款金额：")]), _c('p', {
+    staticClass: "font-40 color-333 weex-el weex-text",
+    staticStyle: {
+      "color": "#f16700"
+    },
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v(_vm._s(_vm.orderDetail.loan_money))])]), _vm._v(" "), _c('div', {
+    staticClass: "flex-direction weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('p', {
+    staticClass: "font-30 color-333 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("贷款期限：" + _vm._s(_vm.orderDetail.loan_deadline))])])]), _vm._v(" "), (_vm.orderDetail.order_status === '3') ? _c('div', {
+    staticClass: "shop-status weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('div', {
+    staticClass: "line weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "flex-direction weex-ct weex-div",
+    staticStyle: {
+      "margin-top": "0.32rem",
+      "margin-bottom": "0.13333rem"
+    },
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('p', {
+    staticClass: "font-30 color-333 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("买入时间：" + _vm._s(_vm.orderDetail.complete_time))])]), _vm._v(" "), _c('div', {
+    staticClass: "flex-direction weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('p', {
+    staticClass: "font-30 color-333 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("买入价格：" + _vm._s(_vm.orderDetail.buy_price) + "元(" + _vm._s(_vm.orderDetail.buy_type === '1' ? '共享单' : '买断单') + ")")])])]) : _vm._e()]), _vm._v(" "), ((_vm.orderDetail.has_car === 'Y') || (_vm.orderDetail.has_car_loan === 'Y') || (_vm.orderDetail.has_house === 'Y') || (_vm.orderDetail.has_house_loan === 'Y') || (_vm.orderDetail.has_credit_card === 'Y') || (_vm.orderDetail.has_social === 'Y') || (_vm.orderDetail.has_insurance === 'Y')) ? _c('div', {
+    staticClass: "aptitude flex-direction bg-color-fff weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [(_vm.orderDetail.has_car === 'Y') ? _c('div', {
+    staticClass: "aptitude-item flex-direction bg-color-fff weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('figure', {
+    staticClass: "aptitude-item-icon icon-car weex-el weex-image",
+    attrs: {
+      "src": _vm.ip + '/img/icon_car3x.png',
+      "data-img-src": _vm.ip + '/img/icon_car3x.png',
+      "weex-type": "image"
+    }
+  }), _c('p', {
+    staticClass: "font-28 color-333 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("有车")])]) : _vm._e(), _vm._v(" "), (_vm.orderDetail.has_car_loan === 'Y') ? _c('div', {
+    staticClass: "aptitude-item flex-direction bg-color-fff weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('figure', {
+    staticClass: "aptitude-item-icon icon-car-loan weex-el weex-image",
+    attrs: {
+      "src": _vm.ip + '/img/icon_car23x.png',
+      "data-img-src": _vm.ip + '/img/icon_car23x.png',
+      "weex-type": "image"
+    }
+  }), _c('p', {
+    staticClass: "font-28 color-333 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("有车贷")])]) : _vm._e(), _vm._v(" "), (_vm.orderDetail.has_house === 'Y') ? _c('div', {
+    staticClass: "aptitude-item flex-direction bg-color-fff weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('figure', {
+    staticClass: "aptitude-item-icon icon-house weex-el weex-image",
+    attrs: {
+      "src": _vm.ip + '/img/icon_house3x.png',
+      "data-img-src": _vm.ip + '/img/icon_house3x.png',
+      "weex-type": "image"
+    }
+  }), _c('p', {
+    staticClass: "font-28 color-333 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("有房")])]) : _vm._e(), _vm._v(" "), (_vm.orderDetail.has_house_loan === 'Y') ? _c('div', {
+    staticClass: "aptitude-item flex-direction bg-color-fff weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('figure', {
+    staticClass: "aptitude-item-icon icon-house-loan weex-el weex-image",
+    attrs: {
+      "src": _vm.ip + '/img/icon_house23x.png',
+      "data-img-src": _vm.ip + '/img/icon_house23x.png',
+      "weex-type": "image"
+    }
+  }), _c('p', {
+    staticClass: "font-28 color-333 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("有房贷")])]) : _vm._e(), _vm._v(" "), (_vm.orderDetail.has_credit_card === 'Y') ? _c('div', {
+    staticClass: "aptitude-item flex-direction bg-color-fff weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('figure', {
+    staticClass: "aptitude-item-icon icon-credit weex-el weex-image",
+    attrs: {
+      "src": _vm.ip + '/img/icon_creditcard3x.png',
+      "data-img-src": _vm.ip + '/img/icon_creditcard3x.png',
+      "weex-type": "image"
+    }
+  }), _c('p', {
+    staticClass: "font-28 color-333 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("有信用卡")])]) : _vm._e(), _vm._v(" "), (_vm.orderDetail.has_social === 'Y') ? _c('div', {
+    staticClass: "aptitude-item flex-direction bg-color-fff weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('figure', {
+    staticClass: "aptitude-item-icon icon-social weex-el weex-image",
+    attrs: {
+      "src": _vm.ip + '/img/icon_sl3x.png',
+      "data-img-src": _vm.ip + '/img/icon_sl3x.png',
+      "weex-type": "image"
+    }
+  }), _c('p', {
+    staticClass: "font-28 color-333 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("有社保")])]) : _vm._e(), _vm._v(" "), (_vm.orderDetail.has_public_fund === 'Y') ? _c('div', {
+    staticClass: "aptitude-item flex-direction bg-color-fff weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('figure', {
+    staticClass: "aptitude-item-icon icon-house-fund weex-el weex-image",
+    attrs: {
+      "src": _vm.ip + '/img/icon_housefund3x.png',
+      "data-img-src": _vm.ip + '/img/icon_housefund3x.png',
+      "weex-type": "image"
+    }
+  }), _c('p', {
+    staticClass: "font-28 color-333 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("有公积金")])]) : _vm._e(), _vm._v(" "), (_vm.orderDetail.has_loan === 'Y') ? _c('div', {
+    staticClass: "aptitude-item flex-direction bg-color-fff weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('figure', {
+    staticClass: "aptitude-item-icon icon-loan weex-el weex-image",
+    attrs: {
+      "src": _vm.ip + '/img/icon_bancklend3x.png',
+      "data-img-src": _vm.ip + '/img/icon_bancklend3x.png',
+      "weex-type": "image"
+    }
+  }), _c('p', {
+    staticClass: "font-28 color-333 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("有贷款")])]) : _vm._e(), _vm._v(" "), (_vm.orderDetail.has_weilidai === 'Y') ? _c('div', {
+    staticClass: "aptitude-item flex-direction bg-color-fff weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('figure', {
+    staticClass: "aptitude-item-icon icon-weilidai weex-el weex-image",
+    attrs: {
+      "src": _vm.ip + '/img/icon_weilidailogo3x.png',
+      "data-img-src": _vm.ip + '/img/icon_weilidailogo3x.png',
+      "weex-type": "image"
+    }
+  }), _c('p', {
+    staticClass: "font-28 color-333 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("有微粒贷")])]) : _vm._e(), _vm._v(" "), (_vm.orderDetail.has_insurance === 'Y') ? _c('div', {
+    staticClass: "aptitude-item flex-direction bg-color-fff weex-ct weex-div",
+    staticStyle: {
+      "width": "9.36rem",
+      "margin-bottom": "0"
+    },
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('figure', {
+    staticClass: "aptitude-item-icon icon-insurance weex-el weex-image",
+    attrs: {
+      "src": _vm.ip + '/img/icon_insurance3x.png',
+      "data-img-src": _vm.ip + '/img/icon_insurance3x.png',
+      "weex-type": "image"
+    }
+  }), _vm._v(" "), _c('p', {
+    staticClass: "font-28 color-333 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("寿险保单")]), _vm._v(" "), _c('p', {
+    staticClass: "font-28 color-666 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("(" + _vm._s(_vm.orderDetail.insurance_money) + ")")])]) : _vm._e()]) : _vm._e(), _vm._v(" "), _c('div', {
+    staticClass: "info-2 bg-color-fff weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('div', {
+    staticClass: "info-2-item flex-direction weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('p', {
+    staticClass: "font-30 color-666 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("城市")]), _vm._v(" "), _c('p', {
+    staticClass: "font-30 color-666 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v(_vm._s(_vm.orderDetail.city))])]), _vm._v(" "), _c('div', {
+    staticClass: "info-2-item flex-direction weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('p', {
+    staticClass: "font-30 color-666 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("年龄")]), _vm._v(" "), _c('p', {
+    staticClass: "font-30 color-666 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v(_vm._s(_vm.orderDetail.age) + " 岁")])]), _vm._v(" "), _c('div', {
+    staticClass: "info-2-item flex-direction weex-ct weex-div",
+    staticStyle: {
+      "border-bottom-width": "0px"
+    },
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('p', {
+    staticClass: "font-30 color-666 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("性别")]), _vm._v(" "), _c('p', {
+    staticClass: "font-30 color-666 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v(_vm._s(_vm.orderDetail.sex))])])]), _vm._v(" "), _c('div', {
+    staticClass: "info-2 bg-color-fff weex-ct weex-div",
+    class: {
+      'no-b-border': (_vm.orderDetail.order_status === '3' || _vm.orderDetail.order_status === '2')
+    },
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('div', {
+    staticClass: "info-2-item flex-direction weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('p', {
+    staticClass: "font-30 color-666 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("职业类型")]), _vm._v(" "), _c('p', {
+    staticClass: "font-30 color-666 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v(_vm._s(_vm.orderDetail.profession))])]), _vm._v(" "), _c('div', {
+    staticClass: "info-2-item flex-direction weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('p', {
+    staticClass: "font-30 color-666 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("在职时长")]), _vm._v(" "), _c('p', {
+    staticClass: "font-30 color-666 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v(_vm._s(_vm.orderDetail.job_time))])]), _vm._v(" "), _c('div', {
+    staticClass: "info-2-item flex-direction weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('p', {
+    staticClass: "font-30 color-666 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("收入")]), _vm._v(" "), _c('p', {
+    staticClass: "font-30 color-666 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v(_vm._s(_vm.orderDetail.income))])]), _vm._v(" "), _c('div', {
+    staticClass: "info-2-item flex-direction weex-ct weex-div",
+    staticStyle: {
+      "border-bottom-width": "0px"
+    },
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('p', {
+    staticClass: "font-30 color-666 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("发薪方式")]), _vm._v(" "), _c('p', {
+    staticClass: "font-30 color-666 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v(_vm._s(_vm.orderDetail.payment))])])])]), _vm._v(" "), (_vm.orderDetail.order_status !== '2' && _vm.orderDetail.order_status !== '3') ? _c('div', {
+    ref: "SHOPPING",
+    staticClass: "shopping weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('div', {
+    staticClass: "order-status flex-direction weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('div', {
+    staticClass: "order-status-item flex-direction weex-ct weex-div",
+    staticStyle: {
+      "border-right-width": "1px",
+      "border-right-style": "solid",
+      "border-right-color": "#ddd"
+    },
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('figure', {
+    staticClass: "order-status-item-icon weex-el weex-image",
+    attrs: {
+      "src": _vm.checked == false ? _vm.ip + '/img/icon_selected_gray3x.png' : _vm.ip + '/img/icon_selected_orange3x.png',
+      "checked": _vm.buy_type !== '1' ? true : false,
+      "disabled": _vm.order_type === '3' || _vm.orderDetail.buy_type !== '0' ? true : false,
+      "value": "N",
+      "data-img-src": _vm.checked == false ? _vm.ip + '/img/icon_selected_gray3x.png' : _vm.ip + '/img/icon_selected_orange3x.png',
+      "weex-type": "image",
+      "data-evt-click": ""
+    },
+    on: {
+      "click": _vm.$stopOuterA,
+      "weex$tap": function($event) {
+        $event.stopPropagation();
+        _vm.changeOrderStatus('2')
+      }
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: " weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('p', {
+    staticClass: "font-26 color-333 font-bold weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("共享订单")]), _vm._v(" "), _c('p', {
+    staticClass: "font-26 color-666 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("当前已共享" + _vm._s(_vm.orderDetail.share_num) + "/3")])])]), _vm._v(" "), _c('div', {
+    staticClass: "order-status-item flex-direction weex-ct weex-div",
+    attrs: {
+      "weex-type": "div",
+      "data-evt-click": ""
+    },
+    on: {
+      "click": _vm.$stopOuterA,
+      "weex$tap": function($event) {
+        $event.stopPropagation();
+        return _vm.tipMS($event)
+      }
+    }
+  }, [_c('figure', {
+    staticClass: "order-status-item-icon weex-el weex-image",
+    attrs: {
+      "src": _vm.checked == false ? _vm.ip + '/img/icon_selected_gray3x.png' : _vm.ip + '/img/icon_selected_orange3x.png',
+      "checked": _vm.buy_type !== '1' ? true : false,
+      "disabled": _vm.order_type === '3' || _vm.orderDetail.buy_type !== '0' ? true : false,
+      "value": "N",
+      "data-img-src": _vm.checked == false ? _vm.ip + '/img/icon_selected_gray3x.png' : _vm.ip + '/img/icon_selected_orange3x.png',
+      "weex-type": "image",
+      "data-evt-click": ""
+    },
+    on: {
+      "click": _vm.$stopOuterA,
+      "weex$tap": function($event) {
+        $event.stopPropagation();
+        _vm.changeOrderStatus('2')
+      }
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: " weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('p', {
+    staticClass: "font-26 color-333 font-bold weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("买断订单")]), _vm._v(" "), _c('p', {
+    staticClass: "font-26 color-666 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("个人独享,轻松无打扰")])])])]), _vm._v(" "), _c('div', {
+    staticClass: "price-shop bg-color-fff flex-direction weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('div', {
+    staticClass: "price-shop-item price flex-direction weex-ct weex-div",
+    staticStyle: {
+      "width": "6.13333rem"
+    },
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('p', {
+    staticClass: "font-24 color-167 weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("¥")]), _vm._v(" "), (_vm.buy_type === '0') ? _c('p', {
+    staticClass: "font-40 color-167 font-bold weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v(_vm._s(_vm.orderDetail.share_price))]) : _vm._e(), _vm._v(" "), (_vm.buy_type === '1') ? _c('p', {
+    staticClass: "font-40 color-167 font-bold weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v(_vm._s(_vm.orderDetail.share_price))]) : _vm._e(), _vm._v(" "), (_vm.buy_type === '2') ? _c('p', {
+    staticClass: "font-40 color-167 font-bold weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v(_vm._s(_vm.orderDetail.exclusive_price))]) : _vm._e(), _vm._v(" "), _c('p', {
+    staticClass: "font-24 color-167 weex-el weex-text",
+    staticStyle: {
+      "text-decoration": "line-through"
+    },
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("(原价: ¥ " + _vm._s(_vm.orderDetail.basic_price) + ")")])]), _vm._v(" "), _c('div', {
+    staticClass: "price-shop-item btn-shop bg-color-167 weex-ct weex-div",
+    staticStyle: {
+      "width": "3.86667rem"
+    },
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [(_vm.orderDetail.order_status === '0') ? _c('p', {
+    staticClass: "font-38 color-fff weex-el weex-text",
+    attrs: {
+      "weex-type": "text",
+      "data-evt-click": ""
+    },
+    on: {
+      "click": _vm.$stopOuterA,
+      "weex$tap": function($event) {
+        $event.stopPropagation();
+        return _vm.goShopping($event)
+      }
+    }
+  }, [_vm._v("立即购买")]) : _vm._e(), _vm._v(" "), (_vm.orderDetail.order_status === '1') ? _c('p', {
+    staticClass: "font-38 color-fff weex-el weex-text",
+    attrs: {
+      "weex-type": "text",
+      "data-evt-click": ""
+    },
+    on: {
+      "click": _vm.$stopOuterA,
+      "weex$tap": function($event) {
+        $event.stopPropagation();
+        return _vm.goShopping($event)
+      }
+    }
+  }, [_vm._v("继续购买")]) : _vm._e()])])]) : _vm._e()], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
@@ -22643,7 +23305,7 @@ if (false) {
 }
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -22651,7 +23313,7 @@ var Component = __webpack_require__(2)(
   /* script */
   null,
   /* template */
-  __webpack_require__(19),
+  __webpack_require__(20),
   /* styles */
   null,
   /* scopeId */
@@ -22683,7 +23345,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -22703,19 +23365,19 @@ if (false) {
 }
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(21)
+  __webpack_require__(22)
 }
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(23),
-  /* template */
   __webpack_require__(24),
+  /* template */
+  __webpack_require__(25),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -22747,13 +23409,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(22);
+var content = __webpack_require__(23);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -22773,7 +23435,7 @@ if(false) {
 }
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -22787,7 +23449,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22812,7 +23474,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;

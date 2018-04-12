@@ -1,144 +1,146 @@
 
 <template>
   <div class="m-order-detail">
-    <div class="info-1 bg-color-fff">
-      <div class="base-info">
-        <text class="name">{{ orderDetail.username }}({{ orderDetail.sex === '男' ? '先生': '女士' }})</text>
-        <div class="phone flex-direction">
-          <image class="icon-phone" src='../../img/icon_phone3x.png'></image>
-          <text class="font-30 color-333">{{ orderDetail.mobile }} </text>
-          <text class='font-30 color-333' style="color:#999" v-if="(orderDetail.order_status !== '2') && (orderDetail.order_status !== '3')">(购入后可见)</text>
+
+    <scroller style="top:0;bottom:260px;position:fixed;background-color: #eee;left:0;right:0;">
+      <div class="info-1 bg-color-fff">
+        <div>
+          <text class="font-40 font-bold">{{ orderDetail.username }}({{ orderDetail.sex === '男' ? '先生': '女士' }})</text>
+          <div class="base-info-phone flex-direction">
+            <image class="icon-phone" :src="ip+'/img/icon_phone3x.png'"></image>
+            <text class="font-30 color-333">{{ orderDetail.mobile }} </text>
+            <text class='font-30 color-333' style="color:#999" v-if="(orderDetail.order_status !== '2') && (orderDetail.order_status !== '3')">(购入后可见)</text>
+          </div>
+          <div class="line"></div>
+          <image :src="ip+'/img/icon_phone_gray3x.png'" class="contact btn-iphone" v-bind:class="{sure:(orderDetail.order_status === '3' || orderDetail.order_status === '2')}" @click="telOrSms('tel')"></image>
+          <image :src="ip+'/img/icon_wechat_gray3x.png'" class="contact btn-sms" v-bind:class="{sure:(orderDetail.order_status === '3' || orderDetail.order_status === '2')}" @click="telOrSms('sms')"></image>
         </div>
-        <div class="line"></div>
-        <image src='../../img/icon_phone_gray3x.png' class="contact btn-iphone" v-bind:class="{sure:(orderDetail.order_status === '3' || orderDetail.order_status === '2')}" @click="telOrSms('tel')"></image>
-        <image src='../../img/icon_wechat_gray3x.png' class="contact btn-sms" v-bind:class="{sure:(orderDetail.order_status === '3' || orderDetail.order_status === '2')}" @click="telOrSms('sms')"></image>
+        <div class="demand">
+          <div class="flex-direction"><text class="font-30 color-333">申请时间：{{ orderDetail.apply_time }}</text></div>
+          <div class="flex-direction row2"><text class="font-30 color-333">贷款金额：</text><text class="font-40 color-333" style="color:#f16700;">{{ orderDetail.loan_money }}</text></div>
+          <div class="flex-direction"><text class="font-30 color-333">贷款期限：{{ orderDetail.loan_deadline }}</text></div>
+        </div>
+        <div class="shop-status" v-if="orderDetail.order_status === '3'">
+          <div class="line"></div>
+          <div class="flex-direction" style="margin-top:24px;margin-bottom:10px;"><text class="font-30 color-333">买入时间：{{ orderDetail.complete_time }}</text></div>
+          <div class="flex-direction"><text class="font-30 color-333">买入价格：{{ orderDetail.buy_price }}元({{ orderDetail.buy_type === '1' ? '共享单' : '买断单' }})</text></div>
+        </div>
       </div>
-      <div class="demand">
-        <div class="item flex-direction"><text class="font-30 color-333">申请时间：{{ orderDetail.apply_time }}</text></div>
-        <div class="item flex-direction row2"><text class="font-30 color-333">贷款金额：</text><text class="font-30 color-333" style="color:#f16700;font-size:40px;">{{ orderDetail.loan_money }}</text></div>
-        <div class="item flex-direction"><text class="font-30 color-333">贷款期限：{{ orderDetail.loan_deadline }}</text></div>
+      <div class="aptitude flex-direction bg-color-fff"
+          v-if="(orderDetail.has_car === 'Y') || (orderDetail.has_car_loan === 'Y') || (orderDetail.has_house === 'Y') || (orderDetail.has_house_loan === 'Y') || (orderDetail.has_credit_card === 'Y') || (orderDetail.has_social === 'Y') || (orderDetail.has_insurance === 'Y')">
+        <div class="aptitude-item flex-direction bg-color-fff" v-if="orderDetail.has_car === 'Y'">
+          <image :src="ip+'/img/icon_car3x.png'" class="aptitude-item-icon icon-car"></image><text class="font-28 color-333">有车</text>
+        </div>
+        <div class="aptitude-item flex-direction bg-color-fff" v-if="orderDetail.has_car_loan === 'Y'">
+          <image :src="ip+'/img/icon_car23x.png'" class="aptitude-item-icon icon-car-loan"></image><text class="font-28 color-333">有车贷</text>
+        </div>
+        <div class="aptitude-item flex-direction bg-color-fff" v-if="orderDetail.has_house === 'Y'">
+          <image :src="ip+'/img/icon_house3x.png'" class="aptitude-item-icon icon-house"></image><text class="font-28 color-333">有房</text>
+        </div>
+        <div class="aptitude-item flex-direction bg-color-fff" v-if="orderDetail.has_house_loan === 'Y'">
+          <image :src="ip+'/img/icon_house23x.png'" class="aptitude-item-icon icon-house-loan"></image><text class="font-28 color-333">有房贷</text>
+        </div>
+        <div class="aptitude-item flex-direction bg-color-fff" v-if="orderDetail.has_credit_card === 'Y'">
+          <image :src="ip+'/img/icon_creditcard3x.png'" class="aptitude-item-icon icon-credit"></image><text class="font-28 color-333">有信用卡</text>
+        </div>
+        <div class="aptitude-item flex-direction bg-color-fff" v-if="orderDetail.has_social === 'Y'">
+          <image :src="ip+'/img/icon_sl3x.png'" class="aptitude-item-icon icon-social"></image><text class="font-28 color-333">有社保</text>
+        </div>
+        <div class="aptitude-item flex-direction bg-color-fff" v-if="orderDetail.has_public_fund === 'Y'">
+          <image :src="ip+'/img/icon_housefund3x.png'" class="aptitude-item-icon icon-house-fund"></image><text class="font-28 color-333">有公积金</text>
+        </div>
+        <div class="aptitude-item flex-direction bg-color-fff" v-if="orderDetail.has_loan === 'Y'">
+          <image :src="ip+'/img/icon_bancklend3x.png'" class="aptitude-item-icon icon-loan"></image><text class="font-28 color-333">有贷款</text>
+        </div>
+        <div class="aptitude-item flex-direction bg-color-fff" v-if="orderDetail.has_weilidai === 'Y'">
+          <image :src="ip+'/img/icon_weilidailogo3x.png'" class="aptitude-item-icon icon-weilidai"></image><text class="font-28 color-333">有微粒贷</text>
+        </div>
+        <div class="aptitude-item flex-direction bg-color-fff" style="width:702px;margin-bottom:0;" v-if="orderDetail.has_insurance === 'Y'">
+          <image :src="ip+'/img/icon_insurance3x.png'" class="aptitude-item-icon icon-insurance"></image> <text class="font-28 color-333">寿险保单</text> <text class="font-28 color-666">({{ orderDetail.insurance_money }})</text>
+        </div>
       </div>
-      <div class="shop-status" v-if="orderDetail.order_status === '3'">
-        <div class="line"></div>
-        <div class="item flex-direction" style="margin-top:24px;margin-bottom:10px;"><text class="font-30 color-333">买入时间：{{ orderDetail.complete_time }}</text></div>
-        <div class="item flex-direction"><text class="font-30 color-333">买入价格：{{ orderDetail.buy_price }}元({{ orderDetail.buy_type === '1' ? '共享单' : '买断单' }})</text></div>
+      <div class="info-2 bg-color-fff">
+        <div class="info-2-item flex-direction">
+          <text class="font-30 color-666">城市</text>
+          <text class="font-30 color-666">{{ orderDetail.city }}</text>
+        </div>
+        <div class="info-2-item flex-direction">
+          <text class="font-30 color-666">年龄</text>
+          <text class="font-30 color-666">{{ orderDetail.age }} 岁</text>
+        </div>
+        <div class="info-2-item flex-direction" style="border-bottom-width:0px;">
+          <text class="font-30 color-666">性别</text>
+          <text class="font-30 color-666">{{ orderDetail.sex }}</text>
+        </div>
       </div>
-    </div>
+      <div class="info-2 bg-color-fff" v-bind:class="{'no-b-border':(orderDetail.order_status === '3' || orderDetail.order_status === '2')}">
+        <div class="info-2-item flex-direction">
+          <text class="font-30 color-666">职业类型</text>
+          <text class="font-30 color-666">{{ orderDetail.profession }}</text>
+        </div>
+        <div class="info-2-item flex-direction">
+          <text class="font-30 color-666">在职时长</text>
+          <text class="font-30 color-666">{{ orderDetail.job_time }}</text>
+        </div>
+        <div class="info-2-item flex-direction">
+          <text class="font-30 color-666">收入</text>
+          <text class="font-30 color-666">{{ orderDetail.income }}</text>
+        </div>
+        <div class="info-2-item flex-direction" style="border-bottom-width:0px;">
+          <text class="font-30 color-666">发薪方式</text>
+          <text class="font-30 color-666">{{orderDetail.payment }}</text>
+        </div>
+      </div>
+    </scroller>
 
-    <div class="aptitude flex-direction bg-color-fff"
-         v-if="(orderDetail.has_car === 'Y') || (orderDetail.has_car_loan === 'Y') || (orderDetail.has_house === 'Y') || (orderDetail.has_house_loan === 'Y') || (orderDetail.has_credit_card === 'Y') || (orderDetail.has_social === 'Y') || (orderDetail.has_insurance === 'Y')">
-      <div class="item flex-direction" v-if="orderDetail.has_car === 'Y'">
-        <image src='../../img/icon_car3x.png' class="icon icon-car"></image><text class="font-28 color-333">有车</text>
-      </div>
-      <div class="item flex-direction" v-if="orderDetail.has_car_loan === 'Y'">
-        <image src='../../img/icon_car23x.png' class="icon icon-car-loan"></image><text class="font-28 color-333">有车贷</text>
-      </div>
-      <div class="item flex-direction" v-if="orderDetail.has_house === 'Y'">
-        <image src='../../img/icon_house3x.png' class="icon icon-house"></image><text class="font-28 color-333">有房</text>
-      </div>
-      <div class="item flex-direction" v-if="orderDetail.has_house_loan === 'Y'">
-        <image src='../../img/icon_house23x.png' class="icon icon-house-loan"></image><text class="font-28 color-333">有房贷</text>
-      </div>
-      <div class="item flex-direction" v-if="orderDetail.has_credit_card === 'Y'">
-        <image src='../../img/icon_creditcard3x.png' class="icon icon-credit"></image><text class="font-28 color-333">有信用卡</text>
-      </div>
-      <div class="item flex-direction" v-if="orderDetail.has_social === 'Y'">
-        <image src='../../img/icon_sl3x.png' class="icon icon-social"></image><text class="font-28 color-333">有社保</text>
-      </div>
-      <div class="item flex-direction" v-if="orderDetail.has_public_fund === 'Y'">
-        <image src='../../img/icon_housefund3x.png' class="icon icon-house-fund"></image><text class="font-28 color-333">有公积金</text>
-      </div>
-      <div class="item flex-direction" v-if="orderDetail.has_loan === 'Y'">
-        <image src='../../img/icon_bancklend3x.png' class="icon icon-loan"></image><text class="font-28 color-333">有贷款</text>
-      </div>
-      <div class="item flex-direction" v-if="orderDetail.has_weilidai === 'Y'">
-        <image src='../../img/icon_weilidailogo3x.png' class="icon icon-weilidai"></image><text class="font-28 color-333">有微粒贷</text>
-      </div>
-      <div class="item flex-direction" style="width:100%;margin-bottom:0;" v-if="orderDetail.has_insurance === 'Y'">
-        <image src='../../img/icon_insurance3x.png' class="icon icon-insurance"></image> <text class="font-28 color-333">寿险保单</text> <text class="font-28 color-666">({{ orderDetail.insurance_money }})</text>
-      </div>
-    </div>
-
-    <div class="info-2 bg-color-fff">
-      <div class="item flex-direction">
-        <text class="fl font-30 color-666">城市</text>
-        <text class="fr font-30 color-666">{{ orderDetail.city }}</text>
-      </div>
-      <div class="item flex-direction">
-        <text class="fl font-30 color-666">年龄</text>
-        <text class="fr font-30 color-666">{{ orderDetail.age }} 岁</text>
-      </div>
-      <div class="item flex-direction" style="border-bottom:0;">
-        <text class="fl font-30 color-666">性别</text>
-        <text class="fr font-30 color-666">{{ orderDetail.sex }}</text>
-      </div>
-    </div>
-
-    <div class="info-2 bg-color-fff" v-bind:class="{'no-b-border':(orderDetail.order_status === '3' || orderDetail.order_status === '2')}">
-      <div class="item flex-direction">
-        <text class="fl font-30 color-666">职业类型</text>
-        <text class="fr font-30 color-666">{{ orderDetail.profession }}</text>
-      </div>
-      <div class="item flex-direction">
-        <text class="fl font-30 color-666">在职时长</text>
-        <text class="fr font-30 color-666">{{ orderDetail.job_time }}</text>
-      </div>
-      <div class="item flex-direction">
-        <text class="fl font-30 color-666">收入</text>
-        <text class="fr font-30 color-666">{{ orderDetail.income }}</text>
-      </div>
-      <div class="item flex-direction" style="border-bottom-width:0;">
-        <text class="fl font-30 color-666">发薪方式</text>
-        <text class="fr font-30 color-666">{{orderDetail.payment }}</text>
-      </div>
-    </div>
-
-    <div style="height:124px;" v-if="orderDetail.order_status !== '2' && orderDetail.order_status !== '3'"></div>
-    <div style="height:46.5px;" v-if="orderDetail.order_status === '2' || orderDetail.order_status === '3'"></div>
-
-    <div class="shopping" v-if="orderDetail.order_status !== '2' && orderDetail.order_status !== '3'">
+    <div ref='SHOPPING' class="shopping" v-if="orderDetail.order_status !== '2' && orderDetail.order_status !== '3'">
       <div class="order-status flex-direction">
-        <div class="item flex-direction">
-            <image class='icon' v-bind:src="checked == false?'../../img/icon_selected_gray3x.png':'../../img/icon_selected_orange3x.png'" @click="changeOrderStatus('2')" v-bind:checked="buy_type !== '1' ? true : false" v-bind:disabled="order_type === '3' || orderDetail.buy_type !== '0' ? true : false" value="N"></image>
-            <div class="des">
+        <div class="order-status-item flex-direction" style="border-right-width:1px;border-right-style:solid;border-right-color:#ddd;">
+            <image class='order-status-item-icon' v-bind:src="checked == false?ip+'/img/icon_selected_gray3x.png':ip+'/img/icon_selected_orange3x.png'" @click="changeOrderStatus('2')" v-bind:checked="buy_type !== '1' ? true : false" v-bind:disabled="order_type === '3' || orderDetail.buy_type !== '0' ? true : false" value="N"></image>
+            <div>
               <text class="font-26 color-333 font-bold">共享订单</text>
               <text class="font-26 color-666">当前已共享{{ orderDetail.share_num }}/3</text>
             </div>
-
         </div>
-        <div class="item flex-direction" @click="tipMS">
-            <image class='icon' :src="checked == false?'../../img/icon_selected_gray3x.png':'../../img/icon_selected_orange3x.png'" @click="changeOrderStatus('2')" v-bind:checked="buy_type !== '1' ? true : false" v-bind:disabled="order_type === '3' || orderDetail.buy_type !== '0' ? true : false" value="N"></image>
-            <div class="des">
+        <div class="order-status-item flex-direction" @click="tipMS">
+            <image class='order-status-item-icon' :src="checked == false?ip+'/img/icon_selected_gray3x.png':ip+'/img/icon_selected_orange3x.png'" @click="changeOrderStatus('2')" v-bind:checked="buy_type !== '1' ? true : false" v-bind:disabled="order_type === '3' || orderDetail.buy_type !== '0' ? true : false" value="N"></image>
+            <div>
               <text class="font-26 color-333 font-bold">买断订单</text>
               <text class="font-26 color-666">个人独享,轻松无打扰</text>
             </div>
         </div>
       </div>
       <div class="price-shop bg-color-fff flex-direction">
-        <div class="item price flex-direction" style='width:62%;'>
+        <div class="price-shop-item price flex-direction" style='width:460px;'>
           <text class="font-24 color-167">¥</text>
           <text class="font-40 color-167 font-bold" v-if="buy_type === '0'">{{ orderDetail.share_price }}</text>
           <text class="font-40 color-167 font-bold" v-if="buy_type === '1'">{{ orderDetail.share_price }}</text>
           <text class="font-40 color-167 font-bold" v-if="buy_type === '2'">{{ orderDetail.exclusive_price }}</text>
-          <del class="font-24 color-167">(原价: ¥ {{ orderDetail.basic_price }})</del>
+          <text class="font-24 color-167" style="text-decoration:line-through">(原价: ¥ {{ orderDetail.basic_price }})</text>
         </div>
-        <div class="item btn-shop bg-color-167" style='width:38%;'>
+        <div class="price-shop-item btn-shop bg-color-167" style='width:290px;'>
           <text class='font-38 color-fff' v-if="orderDetail.order_status === '0'" @click="goShopping">立即购买</text>
           <text class='font-38 color-fff' v-if="orderDetail.order_status === '1'" @click="goShopping">继续购买</text>
         </div>
       </div>
     </div>
+    <!-- <div style="height:250px;"></div> -->
+    <!-- <div style="height:46.5px;" v-if="orderDetail.order_status === '2' || orderDetail.order_status === '3'"></div> -->
 
   </div>
 </template>
 
 <script>
 /*eslint-disable*/
+  import common from '../common.js'
+  console.log(common.ip)
+  const dom=weex.requireModule('dom')
   export default {
     name: 'OrderDetail',
     data () {
       return {
-        checked:false,
+        checked:true,
+        ip:common.ip,
         user_id: this.$route.query.user_id,
         order_type: this.$route.query.order_type, // 1：普通购买 3：秒杀
         buy_type: '1',   // 1: 共享  2： 买断
@@ -173,32 +175,14 @@
           'profession': '私营业主',
           'sex': '男',
           'share_num': '0',  // 当前的共享数量
-          'share_price': '5', // 共享价格
+          'share_price': '5万', // 共享价格
           'username': '吴镇帆'
         }
       }
     },
-    // beforeCreate () {
-    //   if (this.$COSTANT.PLATFORM === 'ios' && this.$COSTANT.APP_NAME === 'XDY') {
-    //     this.$COMMON_FUN.Cookie.set('buyer_id', this.$route.query.buyer_id)
-    //     this.$COMMON_FUN.Cookie.set('g_token', this.$route.query.g_token)
-    //   }
-    // },
-    // mounted () {
-    //   this.$COMMON_FUN.requestNative({
-    //     tagname: 'clearHistory',
-    //     params: {
-    //       clear: true
-    //     }
-    //   })
-    //   this.$COMMON_FUN.requestNative({
-    //     tagname: 'setTitle',
-    //     params: {
-    //       title: '订单详情'
-    //     }
-    //   })
-    //   this.getOrderDetail()
-    // },
+    created() {
+      // this.ip = common.ip
+    },
     methods: {
       tipMS () {
         if (this.order_type === '3') {

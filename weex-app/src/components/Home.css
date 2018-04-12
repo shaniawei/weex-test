@@ -5,9 +5,11 @@
 .font-30 {
     font-size: 30px;
 }
+
 .font-38 {
     font-size: 38px;
 }
+
 .font-32 {
     font-size: 32px;
 }
@@ -19,34 +21,43 @@
 .font-26 {
     font-size: 26px;
 }
+
 .font-24 {
     font-size: 24px;
 }
-.font-40{
-    font-size:40px;
+
+.font-40 {
+    font-size: 40px;
 }
+
 .color-333 {
     color: #333;
 }
+
 .color-fff {
     color: #fff;
 }
-.color-167{
+
+.color-167 {
     color: #F16700;
 }
+
 .color-666 {
     color: #666;
 }
 
-.font-bold{
-    font-weight:bold;
+.font-bold {
+    font-weight: bold;
 }
+
 .bg-color-fff {
     background-color: #fff;
 }
-.bg-color-167{
-    background-color:#F16700;
+
+.bg-color-167 {
+    background-color: #F16700;
 }
+
 .flex-direction {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -54,19 +65,19 @@
     flex-direction: row;
 }
 
+.vertical {
+    vertical-align: bottom;
+}
+
 .info-1 {
     padding-top: 24px;
     padding-left: 24px;
     padding-bottom: 24px;
     margin-bottom: 16px;
+    width: 750px;
 }
 
-.info-1 .base-info .name {
-    font-size: 40px;
-    font-weight: bold;
-}
-
-.info-1 .base-info .phone {
+.base-info-phone {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -74,10 +85,11 @@
     margin-bottom: 26px;
 }
 
-.info-1 .base-info .phone .icon-phone {
+.icon-phone {
     width: 24px;
     height: 40px;
     margin-right: 20px;
+    margin-right: 20px !important;
 }
 
 .line {
@@ -86,7 +98,7 @@
     border-color: #ddd;
 }
 
-.info-1 .base-info .contact {
+.contact {
     width: 48px;
     height: 48px;
     position: absolute;
@@ -95,23 +107,23 @@
     transform: translateY(-50%);
 }
 
-.info-1 .base-info .contact.btn-iphone {
+.btn-iphone {
     right: 128px;
 }
 
-.info-1 .base-info .contact.btn-sms {
+.btn-sms {
     right: 40px;
 }
 
-.info-1 .demand {
+.demand {
     padding-top: 24px;
 }
 
-.info-1 .shop-status {
+.shop-status {
     margin-top: 24px;
 }
 
-.info-1 .demand .item.row2 {
+.row2 {
     margin-top: 10px;
     margin-bottom: 10px;
     -webkit-box-align: center;
@@ -130,9 +142,10 @@
     -ms-flex-pack: justify;
     justify-content: space-between;
     margin-bottom: 18px;
+    width: 750px;
 }
 
-.aptitude .item {
+.aptitude-item {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -147,20 +160,23 @@
     margin-bottom: 24px;
 }
 
-.aptitude .item .icon {
+.aptitude-item-icon {
     width: 42px;
     height: 34.5px;
     margin-left: 20px;
     margin-right: 20px;
+    margin-left: 20px !important;
+    margin-right: 20px !important;
 }
 
 .info-2 {
     padding-left: 24px;
     padding-right: 24px;
     margin-bottom: 8px;
+    width: 750px;
 }
 
-.info-2 .item {
+.info-2-item {
     padding-top: 18px;
     padding-bottom: 18px;
     -webkit-box-pack: justify;
@@ -173,35 +189,38 @@
 
 .shopping {
     position: fixed;
+    width: 750px;
     bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    transform:translateY(-20%);
+    height: 260px;
 }
 
-.shopping .order-status {
-    background: #F9F9F9;
+.order-status {
+    background-color: #F9F9F9;
+    height: 130px;
+    align-items: center;
 }
 
-.shopping .order-status .item {
-    width: 50%;
+.order-status-item {
+    flex: 1;
     -webkit-box-align: flex-start;
     -ms-flex-align: flex-start;
     align-items: flex-start;
-    padding-top: 20px;
-    padding-bottom: 20px;
 }
-.shopping .order-status .item .icon{
-    width:40px;
-    height:40px;
-    margin-left:40px;
-    margin-right:24px;
+
+.order-status-item-icon {
+    width: 40px;
+    height: 40px;
+    margin-left: 40px;
+    margin-right: 24px;
+    margin-left: 40px !important;
+    margin-right: 24px !important;
 }
-.shopping .price-shop{
-    height:124px;
+
+.price-shop {
+    height: 130px;
 }
-.shopping .price-shop .item{
-    align-items:center;
+
+.price-shop-item {
+    align-items: center;
     justify-content: center;
 }
