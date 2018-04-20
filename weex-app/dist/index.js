@@ -2842,150 +2842,14 @@ var _common2 = _interopRequireDefault(_common);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.log(_common2.default.ip); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/*eslint-disable*/
-
-var dom = weex.requireModule('dom');
 exports.default = {
   name: 'OrderDetail',
   data: function data() {
     return {
-      checked: true,
+      checked: '2',
       ip: _common2.default.ip,
-      user_id: this.$route.query.user_id,
-      order_type: this.$route.query.order_type, // 1：普通购买 3：秒杀
+      user_id: '',
+      order_type: '3', // 1：普通购买 3：秒杀
       buy_type: '1', // 1: 共享  2： 买断
       orderDetail: {
         'age': '23',
@@ -3023,108 +2887,126 @@ exports.default = {
       }
     };
   },
-  created: function created() {
-    // this.ip = common.ip
+  mounted: function mounted() {
+    var _this = this;
+
+    _common2.default.stream.fetch({
+      url: 'sdy://tempRemind',
+      method: 'get'
+    });
+    // 获取 order_type
+    _common2.default.storage.getItem('order_type', function (e) {
+      if (e.result == 'success') {
+        if (e.data !== undefined) {
+          _this.order_type = e.data;
+        }
+      }
+    });
+    //获取user_id
+    _common2.default.storage.getItem('user_id', function (e) {
+      if (e.result == 'success') {
+        if (e.data !== undefined) {
+          _this.user_id = e.data;
+        }
+      }
+    });
   },
 
   methods: {
     tipMS: function tipMS() {
+      //秒杀产品不能 选择买断订单
       if (this.order_type === '3') {
-        this.Toast({
+        _common2.default.modal.toast({
           message: '秒杀不能购买买断订单',
-          position: 'middle',
           duration: 3000
         });
       }
     },
     getOrderDetail: function getOrderDetail() {
-      var _this = this;
+      var _this2 = this;
 
-      this.$http({
-        url: '/query_item_detail',
-        params: {
-          'user_id': this.user_id
-        }
+      //获取基本信息
+      _common2.default.stream.fetch({
+        method: 'get',
+        url: '/query_item_detail?user_id=' + this.user_id,
+        type: 'json'
       }, function (res) {
-        _this.orderDetail = res.data;
-        _this.buy_type = res.data.buy_type === '2' ? '2' : '1';
+        if (res.ok == true) {
+          _this2.orderDetail = res.data;
+          _this2.buy_type = res.data.buy_type === '2' ? '2' : '1';
+        }
       });
     },
     telOrSms: function telOrSms(type) {
+      //拨打电话，发送短信
       if (this.orderDetail.order_status === '0' || this.orderDetail.order_status === '1') {
-        this.Toast({
+        _common2.default.modal.toast({
           message: '请先完成购买',
-          position: 'middle',
           duration: 3000
         });
         return false;
       }
-      //   let link = 'http://***/?type=' + type + '&mobile=' + this.orderDetail.mobile
-      //   console.log(link)
       if (type === 'sms') {
-        this.$COMMON_FUN.requestNative({
-          tagname: 'sendSMS',
-          params: {
-            mobile: this.orderDetail.mobile,
-            message: ''
-          }
+        _common2.default.stream.fetch({
+          url: 'sdy://sendSMS?mobile=' + this.orderDetail.mobile + '&message=""',
+          method: 'get'
         });
       } else if (type === 'tel') {
-        this.$COMMON_FUN.requestNative({
-          tagname: 'callPhone',
-          params: {
-            mobile: this.orderDetail.mobile
-          }
+        _common2.default.stream.fetch({
+          url: 'sdy://callPhone?mobile=' + this.orderDetail.mobile,
+          method: 'get'
         });
       }
     },
     changeOrderStatus: function changeOrderStatus(status) {
-      this.buy_type = status;
+      //切换 共享订单or买断订单
+      this.checked = status;
     },
     goShopping: function goShopping() {
-      var _this2 = this;
-
-      if (this.$COMMON_FUN.Cookie.get('buyer_id') === '9999') {
-        this.$COMMON_FUN.requestNative({
-          tagname: 'startLogin',
-          params: {
-            toast: '',
-            url: window.location.href
-          }
-        });
-        return;
-      }
-
-      this.$http({
-        url: '/get_buyer_balance',
-        params: {}
-      }, function (res) {
-        if (res.data.auth_status === '2') {
-          _this2.Toast({
-            message: '正在审核中',
-            position: 'middle',
-            duration: 3000
-          });
-        } else if (res.data.auth_status === '3') {
-          _this2.$COMMON_FUN.requestNative({
-            tagname: 'tempRemind',
-            params: {}
-          });
-        } else {
-          _this2.MessageBox({
-            title: '认证提醒',
-            message: '您还没有进行信贷员身份认证<br/>认证后方能进行购买操作',
-            showCancelButton: true,
-            confirmButtonText: '立即前往',
-            cancelButtonText: '先看看'
-          }).then(function (action) {
-            if (action === 'confirm') {
-              _this2.$COMMON_FUN.requestNative({
-                tagname: 'identityAuth',
-                params: {}
+      //点击继续购买
+      var currentURL = weex.config.bundleUrl;
+      _common2.default.storage.getItem('buyer_id', function (e) {
+        if (e.result == 'success') {
+          if (e.data !== undefined) {
+            if (e.data === '9999') {
+              _common2.default.stream.fetch({
+                url: 'sdy://startLogin?url=' + currentURL + 'toast=""',
+                method: 'get'
               });
+              return;
             }
-          });
+
+            _common2.default.stream.fetch({
+              url: '/get_buyer_balance'
+            }, function (res) {
+              if (res.ok == true) {
+                if (res.data.auth_status === '2') {
+                  _common2.default.modal.toast({
+                    message: '正在审核中',
+                    duration: 3000
+                  });
+                } else if (res.data.auth_status === '3') {
+                  _common2.default.stream.fetch({
+                    url: 'sdy://tempRemind',
+                    method: 'get'
+                  });
+                } else {
+                  _common2.default.modal.confirm({
+                    message: '您还没有进行信贷员身份认证<br/>认证后方能进行购买操作',
+                    duration: 0.3
+                  }, function (action) {
+                    console.log(action);
+                    if (action === 'confirm') {
+                      _common2.default.stream.fetch({
+                        url: 'sdy://identityAuth',
+                        method: 'get'
+                      });
+                    }
+                  });
+                }
+              }
+            });
+          }
         }
       });
       // if (this.orderDetail.order_id === '' || this.orderDetail.order_id === undefined) {
@@ -3161,7 +3043,138 @@ exports.default = {
       // }
     }
   }
-};
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/*eslint-disable*/
 
 /***/ }),
 /* 6 */
@@ -3175,8 +3188,14 @@ Object.defineProperty(exports, "__esModule", {
 });
 /*eslint-disable*/
 var IP = 'http://192.168.1.51:8081';
+var storage = weex.requireModule('storage');
+var modal = weex.requireModule('modal');
+var stream = weex.requireModule('stream');
 exports.default = {
-    ip: IP
+    ip: IP,
+    storage: storage,
+    modal: modal,
+    stream: stream
 };
 
 /***/ }),
@@ -3217,11 +3236,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["line"]
   }), _c('image', {
     staticClass: ["contact", "btn-iphone"],
-    class: {
-      sure: (_vm.orderDetail.order_status === '3' || _vm.orderDetail.order_status === '2')
-    },
     attrs: {
-      "src": _vm.ip + '/img/icon_phone_gray3x.png'
+      "src": _vm.orderDetail.order_status === '3' || _vm.orderDetail.order_status === '2' ? _vm.ip + '/img/icon_phone_orange@3x.png' : _vm.ip + '/img/icon_phone_gray3x.png'
     },
     on: {
       "click": function($event) {
@@ -3230,11 +3246,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _c('image', {
     staticClass: ["contact", "btn-sms"],
-    class: {
-      sure: (_vm.orderDetail.order_status === '3' || _vm.orderDetail.order_status === '2')
-    },
     attrs: {
-      "src": _vm.ip + '/img/icon_wechat_gray3x.png'
+      "src": _vm.orderDetail.order_status === '3' || _vm.orderDetail.order_status === '2' ? _vm.ip + '/img/icon_wechat_orange@3x.png' : _vm.ip + '/img/icon_wechat_gray3x.png'
     },
     on: {
       "click": function($event) {
@@ -3444,14 +3457,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('image', {
     staticClass: ["order-status-item-icon"],
     attrs: {
-      "src": _vm.checked == false ? _vm.ip + '/img/icon_selected_gray3x.png' : _vm.ip + '/img/icon_selected_orange3x.png',
-      "checked": _vm.buy_type !== '1' ? true : false,
-      "disabled": _vm.order_type === '3' || _vm.orderDetail.buy_type !== '0' ? true : false,
-      "value": "N"
+      "src": _vm.checked == '1' ? _vm.ip + '/img/icon_selected_orange3x.png' : _vm.ip + '/img/icon_selected_gray3x.png'
     },
     on: {
       "click": function($event) {
-        _vm.changeOrderStatus('2')
+        _vm.changeOrderStatus('1')
       }
     }
   }), _c('div', [_c('text', {
@@ -3466,10 +3476,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('image', {
     staticClass: ["order-status-item-icon"],
     attrs: {
-      "src": _vm.checked == false ? _vm.ip + '/img/icon_selected_gray3x.png' : _vm.ip + '/img/icon_selected_orange3x.png',
-      "checked": _vm.buy_type !== '1' ? true : false,
-      "disabled": _vm.order_type === '3' || _vm.orderDetail.buy_type !== '0' ? true : false,
-      "value": "N"
+      "src": _vm.checked == '2' ? _vm.ip + '/img/icon_selected_orange3x.png' : _vm.ip + '/img/icon_selected_gray3x.png'
     },
     on: {
       "click": function($event) {

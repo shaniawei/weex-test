@@ -19,6 +19,30 @@
 
   ​
 
+#### weex-toolkit的一些命令
+
+- 安装weex-toolkit工具 
+
+​	`npm install -g weex-toolkit`
+
+- 创建项目
+
+  `weex create your_project_name`
+
+- 预览项目
+
+​	进入到项目运行 `npm start`
+
+- 调试项目
+
+​	`weex debug`
+
+- 编译单个weex文件或者整个文件夹中的weex文件
+
+  weex compile source-src(入口)  dest(导出路径) 
+
+- ​
+
 ### weex的调试工具
 
 weexplayground
@@ -76,6 +100,8 @@ IOS运行打包有问题，未解决
 
 ### weex通用样式
 
+​	[UI组件](https://alibaba.github.io/weex-ui/#/packages/wxc-button/)
+
 1. 只支持像素值，不支持相对值，适配以750像素为标准
 
 2. 设定边框，border目前不支持`border:1px solid #f00;` 这样的组合写法，目前支持分开编辑的写法，即`border-width:1px;border-style:solid;border-color:#f00;`
@@ -100,7 +126,7 @@ IOS运行打包有问题，未解决
 
 12. Weex 盒模型的 box-sizing 默认为 border-box
 
-13. weex中编辑css 没有标签选择器，只能通过类选择器和id选择器增加css样式
+13. weex中编辑css 没有标签选择器，只能通过类选择器和id选择器增加css样式，一般用类选择器
 
 14. 文字必须放在text标签中，不可以直接放在div标签中
 
@@ -110,9 +136,9 @@ IOS运行打包有问题，未解决
 
 16. **width，height这些不可以用百分比，只能用像素px**
 
-17. **position:fixed;定义元素宽高，才可以精准定位，真机没问题，web元素块会偏下(调试工具有毛病)**
+26. **position:fixed;定义元素宽高，才可以精准定位，真机没问题，web元素块会偏下(调试工具有毛病)**
 
-18. **页面底部固定悬浮一个元素块，页面内容往下滑动问题**
+36. **页面底部固定悬浮一个元素块，页面内容往下滑动问题**
 
 
 底部元素块样式：position:fixed;bottom:0;width:***xxx***px;height:***xxx***px;宽高都定义一下
@@ -138,18 +164,26 @@ scroller标签内的子div需要添加css:`width:750px;`
 
 3. 安卓真机滑动卡顿
 
-   ### weex内建组件
+   ​
+
+   ​
 
 
+### weex内建组件
 
+具体使用方法 请参考weex文档
+
+- clipboard——  *从系统的粘贴板获取或设置内容
+- globalEvent—— 目前使用该组件 调用安卓的方法 获取是否触发物理返回键
+- modal—— toast confirm等提示框
+- storage—— 存储数据 类似于h5的localstorage
+- stream—— 发送请求
 
 
 ### Image引入图片方面
 
 因为Weex 没有内置的图片下载器，需要Android和iOS 进行一些配置才可正常使用。
 [配置方法](http://weex.apache.org/cn/references/components/image.html)
-
-
 
 ### weex嵌入到已有应用方面
 
@@ -190,17 +224,30 @@ Android和iOS进行一些weex配置，web前端将项目打包好bundle.js给And
 
 ### Weex页面之间使用vue-router跳转  **weex debug手机调试出现问题**，打包的bundleJS没问题
 
-问题还未解决  运行此项目 即可重现问题
+问题还未解决
 
 
 
-### 未实践的
+#### 数据交互
 
-- 点击weex页面直接跳转到native页面
-- weex页面与native页面之间的数据交互
-- 微信、qq、微博等第三方登录，支付，分享(需安卓/iOS写好插件)
-- weex页面嵌入与webview对比(咨询安卓开发后，大致说weex较为麻烦)
+发送请求仅支持以下几种协议类型：
 
+1. http
+2. https
+3. data
+4. chrome
+5. chrome-extension
+
+   与客户端约定请求拦截格式 可选择 `http://sdy//xxxx?params=xxxx`
+
+#### 更新打包好的js文件方式
+
+1. 直接替换服务器上的js文件
+2. 为避免客户端加载的不是最新版的，在加载的时候添加时间戳参数
+
+#### 尚未解决的问题
+
+1. weex compile 编译文件 导出文件 访问方式不清楚
 
 
 

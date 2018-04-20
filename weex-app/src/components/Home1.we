@@ -177,10 +177,6 @@
       }
     },
     mounted () {
-      common.stream.fetch({
-        url: 'sdy://tempRemind',
-        method: 'get'
-      })
       // 获取 order_type
       common.storage.getItem('order_type',e => {
         if(e.result == 'success'){
